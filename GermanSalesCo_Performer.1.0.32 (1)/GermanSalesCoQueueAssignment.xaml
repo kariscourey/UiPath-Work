@@ -1,0 +1,383 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GermanSalesCoQueueAssignment" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="userName" Type="InArgument(x:String)" />
+    <x:Property Name="password" Type="InArgument(x:String)" />
+    <x:Property Name="Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_DtReportingDatatable" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_StrFilePathLookupSheet" Type="InArgument(x:String)" />
+    <x:Property Name="out_jsonobjAssignTo" Type="OutArgument(njl:JObject)" />
+    <x:Property Name="out_jsonobjCCR" Type="OutArgument(njl:JObject)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>980,3054.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>GermanSalesCoQueueAssignment_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="40">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Excel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
+      <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="990,2990" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="status" />
+      <Variable x:TypeArguments="sd:DataTable" Name="AccountLookup" />
+      <Variable x:TypeArguments="sd:DataTable" Name="FilterTableAccount" />
+      <Variable x:TypeArguments="x:String" Name="SRNumber" />
+      <Variable x:TypeArguments="x:String" Name="AssignQueue" />
+      <Variable x:TypeArguments="x:String" Name="CustomerCareRep" />
+      <Variable x:TypeArguments="x:String" Name="CustomerCareRepresentative_c" />
+      <Variable x:TypeArguments="sd:DataTable" Name="FilterTableQueue" />
+      <Variable x:TypeArguments="x:Int32" Name="status_CCR" />
+      <Variable x:TypeArguments="x:Int32" Name="status_AssignTo" />
+      <Variable x:TypeArguments="x:String" Name="strLogErrorMessage" />
+      <Variable x:TypeArguments="x:String" Name="strThrowError" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[AccountLookup]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="948,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="in" WorkbookPath="[in_StrFilePathLookupSheet]" />
+    <ui:FilterDataTable DataTable="[AccountLookup]" DisplayName="Filter Data Table - CurrentQueue" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="948,161.333333333333" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[FilterTableQueue]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:String">["Current Queue"]</InArgument>
+            </ui:FilterOperationArgument.Column>
+            <ui:FilterOperationArgument.Operand>
+              <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("QueueName").ToString]</InArgument>
+            </ui:FilterOperationArgument.Operand>
+          </ui:FilterOperationArgument>
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <x:Null />
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+    </ui:FilterDataTable>
+    <If Condition="[FilterTableQueue.Rows.Count &gt; 0]" DisplayName="If OEC SR Queue (QueueName) equals Current Queue on the look-up table" sap:VirtualizedContainerService.HintSize="948,313.333333333333" sap2010:WorkflowViewState.IdRef="If_4">
+      <If.Then>
+        <ui:FilterDataTable DataTable="[FilterTableQueue]" DisplayName="Filter Data Table - Account Number" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,161.333333333333" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[FilterTableAccount]" SelectColumnsMode="Keep">
+          <ui:FilterDataTable.Filters>
+            <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+              <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                <ui:FilterOperationArgument.Column>
+                  <InArgument x:TypeArguments="x:String">["Account #"]</InArgument>
+                </ui:FilterOperationArgument.Column>
+                <ui:FilterOperationArgument.Operand>
+                  <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("AccountN_c").ToString]</InArgument>
+                </ui:FilterOperationArgument.Operand>
+              </ui:FilterOperationArgument>
+            </scg:List>
+          </ui:FilterDataTable.Filters>
+          <ui:FilterDataTable.SelectColumns>
+            <scg:List x:TypeArguments="InArgument" Capacity="4">
+              <x:Null />
+            </scg:List>
+          </ui:FilterDataTable.SelectColumns>
+        </ui:FilterDataTable>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="No matching queue" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Throw Exception="[New BusinessRuleException(&quot;Lookup table queue not found in OEC. Queue:&quot; +TransactionItem.SpecificContent(&quot;QueueName&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_3" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[FilterTableAccount.Rows.Count &gt; 0]" DisplayName="If OEC SR Account (AccountN_c) equals the Account # on the look-up table" sap:VirtualizedContainerService.HintSize="948,617.333333333333" sap2010:WorkflowViewState.IdRef="If_5">
+      <If.Then>
+        <Sequence DisplayName="Look-up table assign queue exists in OEC" sap:VirtualizedContainerService.HintSize="376,465.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="AssignTo" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName="Update the SR Queue with the Assign Queue from the look-up table" sap:VirtualizedContainerService.HintSize="334,220" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[AssignQueue]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[FilterTableAccount(0)("Assign Queue").ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[SRNumber]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("SrNumber").ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[CustomerCareRep]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[FilterTableAccount(0)("Customer Care Rep").ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[CustomerCareRepresentative_c]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("CustomerCareRepresentative_c").ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[AssignTo]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[FilterTableAccount(0)("Assign To").ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Postman_API_Update Sr workflow" sap:VirtualizedContainerService.HintSize="334,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Postman_API_Update Sr.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="CustomerCareRepresentative_c">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="CustomerCareRepresentative_c" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="CustomerCareRep">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="CustomerCareRep" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="SRNumber">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SRNumber" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="userName">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="userName" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="password">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="password" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_IntTimeout">
+                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="CInt(Config(&quot;GermanSales_Timeout&quot;))" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrHttpGetRequest">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;GermanSales_Perfomer_HTTPGetRequest&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrHttpPatchRequest">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;GermanSales_Perfomer_HTTPPatchRequest&quot;).ToString.Trim" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="QueueName">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionItem.SpecificContent(&quot;QueueName&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="AssignQueue">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="AssignQueue" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="AssignTo">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="AssignTo" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:Int32" x:Key="status_AssignTo">
+                <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="status_AssignTo" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:Int32" x:Key="status_CCR">
+                <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="status_CCR" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:Int32" x:Key="status">
+                <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="status" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjCCR">
+                <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_jsonobjCCR" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjAssignTo">
+                <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_jsonobjAssignTo" />
+              </OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="No matching Account #" sap:VirtualizedContainerService.HintSize="526,304" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[TransactionItem.SpecificContent(&quot;AccountN_c&quot;).ToString.IsNullOrEmpty]" DisplayName="If Account # is Empty " sap:VirtualizedContainerService.HintSize="484,212" sap2010:WorkflowViewState.IdRef="If_6">
+            <If.Then>
+              <Throw Exception="[New BusinessRuleException(&quot;OEC Account number is blank.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_5" />
+            </If.Then>
+            <If.Else>
+              <Throw Exception="[New BusinessRuleException(&quot;Lookup table account number not found in OEC. Account: &quot; +TransactionItem.SpecificContent(&quot;AccountN_c&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_4" />
+            </If.Else>
+          </If>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="948,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Http patch status_CCR: &quot;+status_CCR.ToString]" />
+    <If Condition="[status_CCR =200]" sap:VirtualizedContainerService.HintSize="948,406.666666666667" sap2010:WorkflowViewState.IdRef="If_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="304,254.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[strLogErrorMessage]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">["SR Failed to update. Lookup Information" +SRNumber+ "," + CustomerCareRep + "," +AssignQueue+ ","  +TransactionItem.SpecificContent("AccountN_c").ToString+ "." +CustomerCareRepresentative_c+ "."]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[strThrowError]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">["SR Failed to update. Lookup Information:" + CustomerCareRep + "," +AssignQueue+ ","  +TransactionItem.SpecificContent("AccountN_c").ToString+ "," +CustomerCareRepresentative_c+ "."]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="948,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Http patch status_AssignTo: &quot;+ status_AssignTo.ToString]" />
+    <If Condition="[status_AssignTo = 200]" sap:VirtualizedContainerService.HintSize="948,406.666666666667" sap2010:WorkflowViewState.IdRef="If_7">
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="304,254.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[strLogErrorMessage]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">["SR Failed to update. Lookup Information:"  +AssignQueue+ ","  +TransactionItem.SpecificContent("AccountN_c").ToString+ "," + FilterTableAccount(0)("Assign To").ToString +"."]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[strThrowError]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">["SR Failed to update. Lookup Information:"  +AssignQueue+ ","  +TransactionItem.SpecificContent("AccountN_c").ToString+ "," + FilterTableAccount(0)("Assign To").ToString +"."]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[NOT string.IsNullOrEmpty( strLogErrorMessage)]" sap:VirtualizedContainerService.HintSize="948,399.333333333333" sap2010:WorkflowViewState.IdRef="If_8">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,247.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[strLogErrorMessage]" />
+          <Throw Exception="[new ApplicationException( strThrowError )]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_6" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Record Update Successful&quot;]" />
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>
