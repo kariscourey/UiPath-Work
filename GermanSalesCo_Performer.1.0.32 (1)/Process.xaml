@@ -5,11 +5,12 @@
     <x:Property Name="io_DtReportingDatatable" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="out_JsonObjCCR" Type="OutArgument(njl:JObject)" />
     <x:Property Name="out_JsonObjAssignTo" Type="OutArgument(njl:JObject)" />
+    <x:Property Name="out_JsonObjOnlyQueue" Type="OutArgument(njl:JObject)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>727.333333333333,750.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1091,856</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -47,6 +48,7 @@
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Net</x:String>
       <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -87,7 +89,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="420,686" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="420,791" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="password" />
       <Variable x:TypeArguments="x:String" Name="userName" />
@@ -104,8 +106,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SharePoint_Credential" DisplayName="Get SharePoint Credentials" sap:VirtualizedContainerService.HintSize="378,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[secStrSPPassword]" Username="[strSPUserName]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Sharepoint - Legacy Activities - Download File workflow" sap:VirtualizedContainerService.HintSize="378,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sharepoint - Legacy Activities - Download File.xaml">
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SharePoint_Credential" DisplayName="Get SharePoint Credentials" sap:VirtualizedContainerService.HintSize="378,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[secStrSPPassword]" Username="[strSPUserName]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Sharepoint - Legacy Activities - Download File workflow" sap:VirtualizedContainerService.HintSize="378,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sharepoint - Legacy Activities - Download File.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_StrSiteURL">[in_Config("SharePoint_SiteURL").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_StrUsername">[strSPUserName]</InArgument>
@@ -116,8 +118,8 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_StrNameLookupSheet">[in_Config("GermanSales_LookupSheet_Name").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="egun_oracleb2b_credential" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="378,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[userName]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GermanSalesCoQueueAssignment workflow" sap:VirtualizedContainerService.HintSize="378,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="GermanSalesCoQueueAssignment.xaml">
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="egun_oracleb2b_credential" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="378,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[userName]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GermanSalesCoQueueAssignment workflow" sap:VirtualizedContainerService.HintSize="378,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="GermanSalesCoQueueAssignment.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="ui:QueueItem" x:Key="TransactionItem">
           <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
@@ -143,8 +145,11 @@
         <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjCCR">
           <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_JsonObjCCR" />
         </OutArgument>
+        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjOnlyQueue">
+          <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_JsonObjOnlyQueue" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="378,55.3333333333333" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="378,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
   </Sequence>
 </Activity>
