@@ -8,11 +8,12 @@
     <x:Property Name="in_StrFilePathLookupSheet" Type="InArgument(x:String)" />
     <x:Property Name="out_jsonobjAssignTo" Type="OutArgument(njl:JObject)" />
     <x:Property Name="out_jsonobjCCR" Type="OutArgument(njl:JObject)" />
+    <x:Property Name="out_jsonobj" Type="OutArgument(njl:JObject)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>980,3054.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>980,3084.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GermanSalesCoQueueAssignment_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="40">
@@ -98,7 +99,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="990,2990" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap:VirtualizedContainerService.HintSize="990,3020" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="status" />
       <Variable x:TypeArguments="sd:DataTable" Name="AccountLookup" />
@@ -139,7 +140,7 @@
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
-    <If Condition="[FilterTableQueue.Rows.Count &gt; 0]" DisplayName="If OEC SR Queue (QueueName) equals Current Queue on the look-up table" sap:VirtualizedContainerService.HintSize="948,313.333333333333" sap2010:WorkflowViewState.IdRef="If_4">
+    <If Condition="[FilterTableQueue.Rows.Count &gt; 0]" DisplayName="If OEC SR Queue (QueueName) equals Current Queue on the look-up table" sap:VirtualizedContainerService.HintSize="948,323.333333333333" sap2010:WorkflowViewState.IdRef="If_4">
       <If.Then>
         <ui:FilterDataTable DataTable="[FilterTableQueue]" DisplayName="Filter Data Table - Account Number" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,161.333333333333" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[FilterTableAccount]" SelectColumnsMode="Keep">
           <ui:FilterDataTable.Filters>
@@ -172,7 +173,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <If Condition="[FilterTableAccount.Rows.Count &gt; 0]" DisplayName="If OEC SR Account (AccountN_c) equals the Account # on the look-up table" sap:VirtualizedContainerService.HintSize="948,617.333333333333" sap2010:WorkflowViewState.IdRef="If_5">
+    <If Condition="[FilterTableAccount.Rows.Count &gt; 0]" DisplayName="If OEC SR Account (AccountN_c) equals the Account # on the look-up table" sap:VirtualizedContainerService.HintSize="948,627.333333333333" sap2010:WorkflowViewState.IdRef="If_5">
       <If.Then>
         <Sequence DisplayName="Look-up table assign queue exists in OEC" sap:VirtualizedContainerService.HintSize="376,465.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <Sequence.Variables>
@@ -279,18 +280,21 @@
               <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjAssignTo">
                 <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_jsonobjAssignTo" />
               </OutArgument>
+              <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobj">
+                <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_jsonobj" />
+              </OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="No matching Account #" sap:VirtualizedContainerService.HintSize="526,304" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <Sequence DisplayName="No matching Account #" sap:VirtualizedContainerService.HintSize="526,314" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If Condition="[TransactionItem.SpecificContent(&quot;AccountN_c&quot;).ToString.IsNullOrEmpty]" DisplayName="If Account # is Empty " sap:VirtualizedContainerService.HintSize="484,212" sap2010:WorkflowViewState.IdRef="If_6">
+          <If Condition="[TransactionItem.SpecificContent(&quot;AccountN_c&quot;).ToString.IsNullOrEmpty]" DisplayName="If Account # is Empty " sap:VirtualizedContainerService.HintSize="484,222" sap2010:WorkflowViewState.IdRef="If_6">
             <If.Then>
               <Throw Exception="[New BusinessRuleException(&quot;OEC Account number is blank.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_5" />
             </If.Then>
@@ -302,7 +306,7 @@
       </If.Else>
     </If>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="948,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Http patch status_CCR: &quot;+status_CCR.ToString]" />
-    <If Condition="[status_CCR =200]" sap:VirtualizedContainerService.HintSize="948,406.666666666667" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[status_CCR =200]" sap:VirtualizedContainerService.HintSize="948,416.666666666667" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
