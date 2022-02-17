@@ -249,7 +249,7 @@
                       </If.Else>
                     </If>
                   </Sequence>
-                  <Sequence x:Key="AssignTo" sap:VirtualizedContainerService.HintSize="571,653" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                  <Sequence x:Key="AssignTo" sap:VirtualizedContainerService.HintSize="571,699" sap2010:WorkflowViewState.IdRef="Sequence_31">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -310,7 +310,7 @@
                       </If.Else>
                     </If>
                   </Sequence>
-                  <Sequence x:Key="CCRAssignTo" sap:VirtualizedContainerService.HintSize="571,653" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                  <Sequence x:Key="CCRAssignTo" sap:VirtualizedContainerService.HintSize="571,699" sap2010:WorkflowViewState.IdRef="Sequence_32">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
