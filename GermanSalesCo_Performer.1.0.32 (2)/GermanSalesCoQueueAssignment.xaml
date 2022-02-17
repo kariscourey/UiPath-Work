@@ -13,6 +13,7 @@
     <x:Property Name="out_PatchType" Type="OutArgument(x:String)" />
     <x:Property Name="status_CCRAssignTo" Type="OutArgument(x:Int32)" />
     <x:Property Name="out_jsonobjCCRAssignTo" Type="OutArgument(njl:JObject)" />
+    <x:Property Name="argument1" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -118,6 +119,7 @@
       <Variable x:TypeArguments="x:String" Name="strLogErrorMessage" />
       <Variable x:TypeArguments="x:String" Name="strThrowError" />
       <Variable x:TypeArguments="x:Int32" Name="status_OnlyQueue" />
+      <Variable x:TypeArguments="x:Int32" Name="status_CCRAssignTo" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -183,9 +185,6 @@
         <Sequence DisplayName="Look-up table assign queue exists in OEC" sap:VirtualizedContainerService.HintSize="376,467" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="AssignTo" />
-            <Variable x:TypeArguments="x:String" Name="strCCR" />
-            <Variable x:TypeArguments="x:String" Name="strOnlyQueue" />
-            <Variable x:TypeArguments="x:String" Name="strAssignTo" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -276,9 +275,6 @@
               <OutArgument x:TypeArguments="x:Int32" x:Key="status">
                 <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="status" />
               </OutArgument>
-              <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobj">
-                <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_jsonobj" />
-              </OutArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="out_PatchType">
                 <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_PatchType" />
               </OutArgument>
@@ -293,9 +289,6 @@
               </OutArgument>
               <OutArgument x:TypeArguments="x:Int32" x:Key="status_CCRAssignTo">
                 <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="status_CCRAssignTo" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjCCRAssignTo">
-                <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_jsonobjCCRAssignTo" />
               </OutArgument>
               <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjAssignTo">
                 <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_jsonobjAssignTo" />

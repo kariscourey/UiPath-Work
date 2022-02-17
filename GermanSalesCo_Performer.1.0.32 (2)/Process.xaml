@@ -6,11 +6,12 @@
     <x:Property Name="out_JsonObjCCR" Type="OutArgument(njl:JObject)" />
     <x:Property Name="out_JsonObjAssignTo" Type="OutArgument(njl:JObject)" />
     <x:Property Name="out_JsonObjOnlyQueue" Type="OutArgument(njl:JObject)" />
+    <x:Property Name="out_JsonObjCCRAssignTo" Type="OutArgument(njl:JObject)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1091,856</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>719,856</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -147,6 +148,12 @@
         </OutArgument>
         <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjOnlyQueue">
           <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_JsonObjOnlyQueue" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobj" />
+        <OutArgument x:TypeArguments="x:String" x:Key="out_PatchType" />
+        <OutArgument x:TypeArguments="x:Int32" x:Key="status_CCRAssignTo" />
+        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjCCRAssignTo">
+          <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_JsonObjCCRAssignTo" />
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>

@@ -12,7 +12,6 @@
     <x:Property Name="AssignQueue" Type="InArgument(x:String)" />
     <x:Property Name="AssignTo" Type="InArgument(x:String)" />
     <x:Property Name="status" Type="OutArgument(x:Int32)" />
-    <x:Property Name="out_jsonobj" Type="OutArgument(njl:JObject)" />
     <x:Property Name="out_PatchType" Type="OutArgument(x:String)" />
     <x:Property Name="out_jsonobjCCR" Type="OutArgument(njl:JObject)" />
     <x:Property Name="status_CCR" Type="OutArgument(x:Int32)" />
@@ -188,7 +187,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <Switch x:TypeArguments="x:String" DisplayName="Switch - Per Patch type" Expression="[out_PatchType]" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="Switch`1_2">
-                  <Sequence x:Key="CCR" sap:VirtualizedContainerService.HintSize="571,699" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                  <Sequence x:Key="CCR" sap:VirtualizedContainerService.HintSize="571,653" sap2010:WorkflowViewState.IdRef="Sequence_30">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -249,7 +248,7 @@
                       </If.Else>
                     </If>
                   </Sequence>
-                  <Sequence x:Key="AssignTo" sap:VirtualizedContainerService.HintSize="571,699" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                  <Sequence x:Key="AssignTo" sap:VirtualizedContainerService.HintSize="571,653" sap2010:WorkflowViewState.IdRef="Sequence_31">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -310,7 +309,7 @@
                       </If.Else>
                     </If>
                   </Sequence>
-                  <Sequence x:Key="CCRAssignTo" sap:VirtualizedContainerService.HintSize="571,699" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                  <Sequence x:Key="CCRAssignTo" sap:VirtualizedContainerService.HintSize="571,653" sap2010:WorkflowViewState.IdRef="Sequence_32">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

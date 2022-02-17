@@ -6714,9 +6714,9 @@
     "restore": {
       "projectUniqueName": "GermanSalesCo_Performer",
       "projectName": "GermanSalesCo_Performer",
-      "projectPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\GermanSalesCo_Performer.1.0.32 (Original)\\.local",
+      "projectPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\GermanSalesCo_Performer.1.0.32 (Optimized)\\.local",
       "packagesPath": "C:\\Users\\561625\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\GermanSalesCo_Performer.1.0.32 (Original)\\.local"
+      "outputPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\GermanSalesCo_Performer.1.0.32 (Optimized)\\.local"
     },
     "frameworks": {
       "net461": {
