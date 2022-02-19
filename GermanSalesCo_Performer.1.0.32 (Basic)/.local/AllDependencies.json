@@ -6708,15 +6708,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\561625\\.nuget\\packages\\": {}
+    "C:\\Users\\karis\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "GermanSalesCo_Performer",
       "projectName": "GermanSalesCo_Performer",
-      "projectPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\GermanSalesCo_Performer.1.0.32 (Basic)\\.local",
-      "packagesPath": "C:\\Users\\561625\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\GermanSalesCo_Performer.1.0.32 (Basic)\\.local"
+      "projectPath": "C:\\Users\\karis\\OneDrive\\Documents\\GitHub\\UiPath-Work\\GermanSalesCo_Performer.1.0.32 (Basic)\\.local",
+      "packagesPath": "C:\\Users\\karis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\karis\\OneDrive\\Documents\\GitHub\\UiPath-Work\\GermanSalesCo_Performer.1.0.32 (Basic)\\.local"
     },
     "frameworks": {
       "net461": {
@@ -6752,7 +6752,7 @@
             "version": "[1.7.0, 1.7.0]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\561625\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\karis\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
