@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>847.333333333333,1420</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>666,1424</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -82,7 +82,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="676,1355.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_15">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="676,1359.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_15">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtOutput" />
     </Sequence.Variables>
@@ -94,7 +94,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="634,55.3333333333333" sap2010:WorkflowViewState.IdRef="Comment_3" Text="//  Invoke steps of the process" />
-    <ui:LogMessage DisplayName="Log Message - Start" sap:VirtualizedContainerService.HintSize="634,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Started Handler (Process) Layer&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Start" sap:VirtualizedContainerService.HintSize="634,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Started Handler (Process) Layer&quot;]" />
     <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="634,825.333333333333" sap2010:WorkflowViewState.IdRef="Flowchart_3">
       <Flowchart.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dtReporting" />
@@ -299,10 +299,7 @@ String.format("ExceptionMessage: {0} | Exception Trace: Null | Exception Source 
                   </sap:WorkflowViewStateService.ViewState>
                 </Assign>
                 <FlowStep.Next>
-                  <FlowDecision x:Name="__ReferenceID0" DisplayName="CEP or OEC?" sap:VirtualizedContainerService.HintSize="72,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                    <FlowDecision.Condition>
-                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_OrchestratorQueueName.Trim.Contains(&quot;ClaimsEscalation&quot;)" />
-                    </FlowDecision.Condition>
+                  <FlowDecision x:Name="__ReferenceID0" Condition="[in_OrchestratorQueueName.Trim.Contains(&quot;ClaimsEscalation&quot;)]" DisplayName="CEP or OEC?" sap:VirtualizedContainerService.HintSize="72,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -340,39 +337,17 @@ String.format("ExceptionMessage: {0} | Exception Trace: Null | Exception Source 
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CEP -  Merge and Output Reporting DataTables workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="SubProcesses\CEP - Merge and Output Reporting DataTables.xaml">
                                   <ui:InvokeWorkflowFile.Arguments>
-                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtReporting">
-                                      <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dtReporting" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtSpecificContent">
-                                      <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dtSpecificContent" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtOutput">
-                                      <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dtOutput" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrFilterChoice">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrFilterChoice" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrReportFilePath">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrReportFilePath" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrEmailRecipients">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrEmailRecipients" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:Boolean" x:Key="in_BoolDeleteLocalReporting">
-                                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_BoolDeleteLocalReporting" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrEmailUsername">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrEmailUsername" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="ss:SecureString" x:Key="in_SecStrEmailPassword">
-                                      <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="in_SecStrEmailPassword" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorQueueName">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OrchestratorQueueName" />
-                                    </InArgument>
+                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtReporting">[dtReporting]</InArgument>
+                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtSpecificContent">[dtSpecificContent]</InArgument>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtOutput">[dtOutput]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrFilterChoice">[in_StrFilterChoice]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrReportFilePath">[in_StrReportFilePath]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrEmailRecipients">[in_StrEmailRecipients]</InArgument>
+                                    <InArgument x:TypeArguments="x:Boolean" x:Key="in_BoolDeleteLocalReporting">[in_BoolDeleteLocalReporting]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrEmailUsername">[in_StrEmailUsername]</InArgument>
+                                    <InArgument x:TypeArguments="ss:SecureString" x:Key="in_SecStrEmailPassword">[in_SecStrEmailPassword]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorQueueName">[in_OrchestratorQueueName]</InArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">

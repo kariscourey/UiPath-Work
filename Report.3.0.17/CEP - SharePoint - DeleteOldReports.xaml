@@ -65,7 +65,6 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="CEP - SharePoint - DeleteOldReports" sap:VirtualizedContainerService.HintSize="864,2681.33333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -101,21 +100,21 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">300,127.166666666667</av:Point>
-          <av:Size x:Key="ShapeSize">200,52</av:Size>
+          <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">400,179.166666666667 400,229.166666666667</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message - Start Sub-Process" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;Started Sub-Process {0}&quot;, strSubProcessName)]" />
+      <ui:LogMessage DisplayName="Log Message - Start Sub-Process" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;Started Sub-Process {0}&quot;, strSubProcessName)]" />
       <FlowStep.Next>
         <FlowStep x:Name="__ReferenceID2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">269,229.166666666667</av:Point>
-              <av:Size x:Key="ShapeSize">262,61.3333333333333</av:Size>
+              <av:Size x:Key="ShapeSize">262,62</av:Size>
               <av:PointCollection x:Key="ConnectorLocation">400,290.5 400,549</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Assign -  strOutputFilePath" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign DisplayName="Assign -  strOutputFilePath" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[strOutputFilePath]</OutArgument>
             </Assign.To>
@@ -133,11 +132,11 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">300,549</av:Point>
-                  <av:Size x:Key="ShapeSize">200,22</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">400,571 400,601 399.895,601 399.895,611</av:PointCollection>
+                  <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">400,601.666666666667 399.895,601.666666666667 399.895,611</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SharePoint_Credential" DisplayName="Get SP Credential" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secStrSPPassword]" Username="[strSPUserName]">
+              <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SharePoint_Credential" DisplayName="Get SP Credential" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secStrSPPassword]" Username="[strSPUserName]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -149,11 +148,11 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">268.895,611</av:Point>
-                      <av:Size x:Key="ShapeSize">262,61.3333333333333</av:Size>
+                      <av:Size x:Key="ShapeSize">262,62</av:Size>
                       <av:PointCollection x:Key="ConnectorLocation">399.895,672.333333333333 399.895,722.333333333333</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign DisplayName="Assign - strSiteURL" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign DisplayName="Assign - strSiteURL" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[strSiteURL]</OutArgument>
                     </Assign.To>
@@ -171,11 +170,11 @@
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">299.895,722.333333333333</av:Point>
-                          <av:Size x:Key="ShapeSize">200,52</av:Size>
+                          <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
                           <av:PointCollection x:Key="ConnectorLocation">399.895,774.333333333333 399.895,804.333333333333 399.79,804.333333333333 399.79,824.333333333333</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Sharepoint - Legacy Activities - Get Files workflow" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Components\Sharepoint - Legacy Activities - Get Files.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Sharepoint - Legacy Activities - Get Files workflow" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Components\Sharepoint - Legacy Activities - Get Files.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="x:String" x:Key="in_StrSiteURL">[strSiteURL]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_StrUsername">[strSPUserName]</InArgument>
@@ -194,11 +193,11 @@
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <av:Point x:Key="ShapeLocation">268.79,824.333333333333</av:Point>
-                              <av:Size x:Key="ShapeSize">262,61.3333333333333</av:Size>
+                              <av:Size x:Key="ShapeSize">262,62</av:Size>
                               <av:PointCollection x:Key="ConnectorLocation">399.79,885.666666666667 399.79,915.666666666667 535.456666666667,915.666666666667 535.456666666667,935.666666666667</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign DisplayName="Assign - intCounter" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign DisplayName="Assign - intCounter" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_5">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:Int32">[intCounter]</OutArgument>
                             </Assign.To>
@@ -227,11 +226,11 @@
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">119,1039.33333333333</av:Point>
-                                      <av:Size x:Key="ShapeSize">262,61.3333333333333</av:Size>
+                                      <av:Size x:Key="ShapeSize">262,62</av:Size>
                                       <av:PointCollection x:Key="ConnectorLocation">250,1100.66666666667 250,1150.66666666667</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Assign DisplayName="Assign - strCurrentFile" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                  <Assign DisplayName="Assign - strCurrentFile" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_8">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:String">[strCurrentFile]</OutArgument>
                                     </Assign.To>
@@ -249,11 +248,11 @@
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <av:Point x:Key="ShapeLocation">150,1150.66666666667</av:Point>
-                                          <av:Size x:Key="ShapeSize">200,52</av:Size>
+                                          <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
                                           <av:PointCollection x:Key="ConnectorLocation">250,1202.66666666667 250,1232.66666666667 247.308333333333,1232.66666666667 247.308333333333,1252.66666666667</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Regex - Apply Regex Pattern workflow" sap:VirtualizedContainerService.HintSize="358,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Components\Regex - Apply Regex Pattern.xaml">
+                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Regex - Apply Regex Pattern workflow" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Components\Regex - Apply Regex Pattern.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
                                           <InArgument x:TypeArguments="x:String" x:Key="in_StrTextInput">[strCurrentFile]</InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="in_StrRegexPattern">\d{2}\-\d{2}\-\d(4)</InArgument>
@@ -444,10 +443,10 @@
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">630,1094</av:Point>
-                                      <av:Size x:Key="ShapeSize">200,52</av:Size>
+                                      <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:LogMessage DisplayName="Log Message - End Sub-Process" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[String.Format(&quot;Finished Sub-Process {0}&quot;, strSubProcessName)]" />
+                                  <ui:LogMessage DisplayName="Log Message - End Sub-Process" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[String.Format(&quot;Finished Sub-Process {0}&quot;, strSubProcessName)]" />
                                 </FlowStep>
                               </FlowDecision.False>
                             </FlowDecision>
