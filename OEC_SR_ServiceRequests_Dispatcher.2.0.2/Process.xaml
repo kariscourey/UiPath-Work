@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1411,647</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1288.66666666667,832.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -71,7 +71,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="421,582" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="421.333333333333,768" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="No_Transactions" />
       <Variable x:TypeArguments="x:String" Name="username" />
@@ -84,23 +84,37 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke OEC_Germany - Download LookUp and Populate CurrentQueue workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="OEC_Germany - Download LookUp and Populate CurrentQueue.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke OEC_Germany - Download LookUp and Populate CurrentQueue workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="OEC_Germany - Download LookUp and Populate CurrentQueue.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_strTotalCurrentQueues">[strTotalCurrentQueues]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:SetAsset TimeoutMS="{x:Null}" AssetName="Reporting_ListGermanQueues" DisplayName="Set Asset - List of Queues for Report" sap:VirtualizedContainerService.HintSize="379,22" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[strTotalCurrentQueues]" />
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="egun_oracleb2b_credential" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="379,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[username]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LoadtoQueue_GermanSales workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="LoadtoQueue_GermanSales.xaml">
+    <ui:SetAsset TimeoutMS="{x:Null}" AssetName="Reporting_ListGermanQueues" DisplayName="Set Asset - List of Queues for Report" sap:VirtualizedContainerService.HintSize="379.333333333333,135.333333333333" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[strTotalCurrentQueues]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="egun_oracleb2b_credential" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="379.333333333333,80.6666666666667" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[username]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LoadtoQueue_GermanSales workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="LoadtoQueue_GermanSales.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:Int32" x:Key="No_Transactions">[CInt(in_Config("GermanSalesQueue_Transactions_To_Process"))]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="username">[username]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="password">[new System.Net.NetworkCredential(string.Empty, password).Password]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Asset_QueueName">[strTotalCurrentQueues]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrHttpRequest">[in_Config("GermanSales_Dispatcher_HTTPGetRequest").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrHttpRequestLimit">[in_Config("GermanSales_HTTP_Limit").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_IntTimeout">[CInt(in_Config("GermanSales_Timeout"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="No_Transactions">
+          <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="CInt(in_Config(&quot;GermanSalesQueue_Transactions_To_Process&quot;))" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="username">
+          <Literal x:TypeArguments="x:String">karis.courey@parker.com</Literal>
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="password">
+          <Literal x:TypeArguments="x:String">FruitJUICE576!</Literal>
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Asset_QueueName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strTotalCurrentQueues" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrHttpRequest">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;GermanSales_Dispatcher_HTTPGetRequest&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrHttpRequestLimit">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;GermanSales_HTTP_Limit&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_IntTimeout">
+          <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="CInt(in_Config(&quot;GermanSales_Timeout&quot;))" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
