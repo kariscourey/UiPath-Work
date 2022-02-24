@@ -8,7 +8,7 @@
     <x:Property Name="in_StrHttpRequestLimit" Type="InArgument(x:String)" />
     <x:Property Name="in_IntTimeout" Type="InArgument(x:Int32)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1517,2424</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1517,2422</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -82,10 +82,9 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
       <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1527,2359" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="1527,2357" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="RestResponse" />
       <Variable x:TypeArguments="x:Int32" Name="StatusCode" />
@@ -123,9 +122,9 @@
         <InArgument x:TypeArguments="x:String">0</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="1485,1967" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+    <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="1485,1965" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
       <ui:InterruptibleDoWhile.Body>
-        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1449,1802" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1449,1800" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -148,7 +147,7 @@
               <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
             </ui:HttpClient.UrlSegments>
           </ui:HttpClient>
-          <If Condition="[StatusCode = 200]" DisplayName="Check Http Results" sap:VirtualizedContainerService.HintSize="1407,1445" sap2010:WorkflowViewState.IdRef="If_2">
+          <If Condition="[StatusCode = 200]" DisplayName="Check Http Results" sap:VirtualizedContainerService.HintSize="1407,1443" sap2010:WorkflowViewState.IdRef="If_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -156,13 +155,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="1027,1288" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence sap:VirtualizedContainerService.HintSize="1025,1286" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap:VirtualizedContainerService.HintSize="985,1196" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence sap:VirtualizedContainerService.HintSize="983,1194" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Int32" Name="real_count" />
                     <Variable x:TypeArguments="x:String" Name="totalResults" />
@@ -172,8 +171,8 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="943,59" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[json_Response]" JsonString="[RestResponse]" />
-                  <If Condition="[json_Response.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="943,903" sap2010:WorkflowViewState.IdRef="If_1">
+                  <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="941,59" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[json_Response]" JsonString="[RestResponse]" />
+                  <If Condition="[json_Response.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="941,903" sap2010:WorkflowViewState.IdRef="If_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -256,10 +255,10 @@
                       </ui:ForEach>
                     </If.Then>
                     <If.Else>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;No SR's to load&quot;]" />
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;No SR's to load&quot;]" />
                     </If.Else>
                   </If>
-                  <Assign DisplayName="Update Response Counter" sap:VirtualizedContainerService.HintSize="942.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_6">
+                  <Assign DisplayName="Update Response Counter" sap:VirtualizedContainerService.HintSize="941,60" sap2010:WorkflowViewState.IdRef="Assign_6">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[strNoResponseItems]</OutArgument>
                     </Assign.To>
@@ -271,7 +270,7 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[&quot;API Response Failed&quot;]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[&quot;API Response Failed&quot;]" />
             </If.Else>
           </If>
           <Assign DisplayName="Initialize Http Offset" sap:VirtualizedContainerService.HintSize="1406.66666666667,62" sap2010:WorkflowViewState.IdRef="Assign_2">
