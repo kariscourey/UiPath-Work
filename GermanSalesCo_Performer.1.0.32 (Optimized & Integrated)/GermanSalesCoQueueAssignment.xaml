@@ -14,7 +14,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>979,2265</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>979,2531</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GermanSalesCoQueueAssignment_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="40">
@@ -100,7 +100,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="989,2200" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap:VirtualizedContainerService.HintSize="989,2466" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="status" />
       <Variable x:TypeArguments="sd:DataTable" Name="AccountLookup" />
@@ -117,6 +117,11 @@
       <Variable x:TypeArguments="x:String" Name="strPatchType" />
       <Variable x:TypeArguments="x:Int32" Name="status_CCRAssignTo" />
       <Variable x:TypeArguments="x:Int32" Name="status_OnlyQueue" />
+      <Variable x:TypeArguments="x:String" Name="strComponentName">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">GermanSalesCoQueueAssignment</Literal>
+        </Variable.Default>
+      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -124,6 +129,7 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="947,93" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[String.Format(&quot;Started Component {0}&quot;, strComponentName)]" />
     <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[AccountLookup]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="947,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="in" WorkbookPath="[in_StrFilePathLookupSheet]" />
     <ui:FilterDataTable DataTable="[AccountLookup]" DisplayName="Filter Data Table - CurrentQueue" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="947,162" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[FilterTableQueue]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>
@@ -521,5 +527,6 @@
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Record Update Successful&quot;]" />
       </If.Else>
     </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="947,93" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[String.Format(&quot;Ended Component {0}&quot;, strComponentName)]" />
   </Sequence>
 </Activity>

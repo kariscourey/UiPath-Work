@@ -25,7 +25,7 @@
     <x:Property Name="AccountNumber" Type="InArgument(x:String)" />
     <x:Property Name="AccountN_c" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1496,2997</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1496,3263</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -101,14 +101,23 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
       <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1506,2932" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence sap:VirtualizedContainerService.HintSize="1506,3198" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strComponentName">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">Postman_API_Update Sr</Literal>
+        </Variable.Default>
+      </Variable>
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1464,93" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[String.Format(&quot;Started Component {0}&quot;, strComponentName)]" />
     <Flowchart DisplayName="" sap:VirtualizedContainerService.HintSize="1464,2840" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <Flowchart.Variables>
         <Variable x:TypeArguments="x:String" Name="get_Json" />
@@ -116,10 +125,22 @@
         <Variable x:TypeArguments="x:String" Name="statusCDMeaning" />
         <Variable x:TypeArguments="x:String" Name="AssigneePersonName" />
         <Variable x:TypeArguments="x:String" Name="strErrorMessage" />
-        <Variable x:TypeArguments="x:String" Name="strCCR" />
-        <Variable x:TypeArguments="x:String" Name="strAssignTo" />
-        <Variable x:TypeArguments="x:String" Name="strOnlyQueue" />
-        <Variable x:TypeArguments="x:String" Name="KBBQueue" />
+        <Variable x:TypeArguments="x:String" Name="strCCR">
+          <Variable.Default>
+            <Literal x:TypeArguments="x:String">CCR</Literal>
+          </Variable.Default>
+        </Variable>
+        <Variable x:TypeArguments="x:String" Name="strAssignTo">
+          <Variable.Default>
+            <Literal x:TypeArguments="x:String">AssignTo</Literal>
+          </Variable.Default>
+        </Variable>
+        <Variable x:TypeArguments="x:String" Name="strOnlyQueue">
+          <Variable.Default>
+            <Literal x:TypeArguments="x:String">OnlyQueue</Literal>
+          </Variable.Default>
+        </Variable>
+        <Variable x:TypeArguments="x:String" Name="QueueName" />
       </Flowchart.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -378,7 +399,7 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="591,93" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Trace" Message="[&quot; Update OEC SR Assign To&quot;]">
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="591,93" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Trace" Message="[&quot;Update OEC SR Assign To&quot;]">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -386,7 +407,7 @@
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:LogMessage>
                                 <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="591,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_27" JsonObject="[out_jsonobjAssignTo]" JsonString="[&quot;{'QueueName': '&quot;+AssignQueue+&quot;','AssigneePersonName':'&quot;+AssignTo+&quot;'}&quot;]" />
-                                <If Condition="[NOT out_jsonobjCCR is Nothing]" sap:VirtualizedContainerService.HintSize="591,374" sap2010:WorkflowViewState.IdRef="If_37">
+                                <If Condition="[NOT out_jsonobjAssignTo is Nothing]" sap:VirtualizedContainerService.HintSize="591,374" sap2010:WorkflowViewState.IdRef="If_37">
                                   <If.Then>
                                     <Sequence sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_47">
                                       <sap:WorkflowViewStateService.ViewState>
@@ -434,7 +455,7 @@
                                 </If>
                               </Sequence>
                             </FlowStep>
-                            <FlowDecision x:Key="OnlyQueue" x:Name="__ReferenceID28" Condition="[CurrentQueue = KBBQueue]" DisplayName="OEC Queue in lookup?" sap:VirtualizedContainerService.HintSize="125,87" sap2010:WorkflowViewState.IdRef="FlowDecision_28">
+                            <FlowDecision x:Key="OnlyQueue" x:Name="__ReferenceID28" Condition="[CurrentQueue = QueueName]" DisplayName="OEC Queue in lookup?" sap:VirtualizedContainerService.HintSize="125,87" sap2010:WorkflowViewState.IdRef="FlowDecision_28">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -487,7 +508,7 @@
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:LogMessage>
-                                            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="591,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_29" JsonObject="[out_jsonobjCCR]" JsonString="[&quot;{'QueueName': '&quot;+AssignQueue+&quot;'}&quot;]" />
+                                            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="591,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_29" JsonObject="[out_jsonobjOnlyQueue]" JsonString="[&quot;{'QueueName': '&quot;+AssignQueue+&quot;'}&quot;]" />
                                             <If Condition="[NOT out_jsonobjOnlyQueue is Nothing]" sap:VirtualizedContainerService.HintSize="591,374" sap2010:WorkflowViewState.IdRef="If_39">
                                               <If.Then>
                                                 <Sequence sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_53">
@@ -583,7 +604,7 @@
                                       <av:Size x:Key="ShapeSize">200,22</av:Size>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Throw DisplayName="Throw - No matching queue in lookup" Exception="[new BusinessRuleException(&quot;No matching queue on the lookup table: &quot; + KBBQueue )]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_28">
+                                  <Throw DisplayName="Throw - No matching queue in lookup" Exception="[new BusinessRuleException(&quot;No matching queue on the lookup table: &quot; + QueueName )]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_28">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1024,13 +1045,13 @@
                     <av:PointCollection x:Key="ConnectorLocation">640,286 640,346.5</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ForEach x:TypeArguments="njl:JObject" CurrentIndex="{x:Null}" DisplayName="For Each JSON object" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[CType(get_JsonObj(&quot;items&quot;),JArray)]">
+                <ui:ForEach x:TypeArguments="njl:JObject" CurrentIndex="{x:Null}" DisplayName="For Each JSON object" sap:VirtualizedContainerService.HintSize="370,295" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[CType(get_JsonObj(&quot;items&quot;),JArray)]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="njl:JObject">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="njl:JObject" Name="item" />
                       </ActivityAction.Argument>
-                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,158.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -1051,7 +1072,7 @@
                             </ui:AssignOperation>
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
                               <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:String">[KBBQueue]</OutArgument>
+                                <OutArgument x:TypeArguments="x:String">[QueueName]</OutArgument>
                               </ui:AssignOperation.To>
                               <ui:AssignOperation.Value>
                                 <InArgument x:TypeArguments="x:String">[item("QueueName").ToString]</InArgument>
@@ -1075,7 +1096,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <FlowDecision.True>
-                      <FlowDecision x:Name="__ReferenceID29" Condition="[AssignQueue = KBBQueue]" DisplayName="Queue same?" sap:VirtualizedContainerService.HintSize="78,87" sap2010:WorkflowViewState.IdRef="FlowDecision_29" True="{x:Reference __ReferenceID12}">
+                      <FlowDecision x:Name="__ReferenceID29" Condition="[AssignQueue = QueueName]" DisplayName="Queue same?" sap:VirtualizedContainerService.HintSize="78,87" sap2010:WorkflowViewState.IdRef="FlowDecision_29" True="{x:Reference __ReferenceID12}">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1173,5 +1194,6 @@
       <x:Reference>__ReferenceID32</x:Reference>
       <x:Reference>__ReferenceID33</x:Reference>
     </Flowchart>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1464,93" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[String.Format(&quot;Ended Component {0}&quot;, strComponentName)]" />
   </Sequence>
 </Activity>
