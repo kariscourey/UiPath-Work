@@ -27,7 +27,7 @@
     <x:Property Name="result_OnlyQueue" Type="OutArgument(x:String)" />
     <x:Property Name="TransactionItem" Type="InArgument(ui:QueueItem)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1496,3263</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1226,2676</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -106,7 +106,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1506,3198" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence sap:VirtualizedContainerService.HintSize="1236,2611" sap2010:WorkflowViewState.IdRef="Sequence_10">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="Postman_API_Update Sr" Name="strComponentName" />
     </Sequence.Variables>
@@ -115,8 +115,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1464,93" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[String.Format(&quot;Started Component {0}&quot;, strComponentName)]" />
-    <Flowchart DisplayName="" sap:VirtualizedContainerService.HintSize="1464,2840" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1194,93" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[String.Format(&quot;Started Component {0}&quot;, strComponentName)]" />
+    <Flowchart DisplayName="" sap:VirtualizedContainerService.HintSize="1194,2253" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <Flowchart.Variables>
         <Variable x:TypeArguments="x:String" Name="get_Json" />
         <Variable x:TypeArguments="njl:JObject" Name="get_JsonObj" />
@@ -135,8 +135,8 @@
           <av:Point x:Key="ShapeLocation">610,2.5</av:Point>
           <av:Size x:Key="ShapeSize">60,75</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">640,77.5 640,99</av:PointCollection>
-          <x:Double x:Key="Height">2804</x:Double>
-          <x:Double x:Key="Width">1430</x:Double>
+          <x:Double x:Key="Height">2217.0453068812494</x:Double>
+          <x:Double x:Key="Width">1160</x:Double>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
@@ -1090,6 +1090,6 @@
       <x:Reference>__ReferenceID26</x:Reference>
       <x:Reference>__ReferenceID27</x:Reference>
     </Flowchart>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1464,93" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[String.Format(&quot;Ended Component {0}&quot;, strComponentName)]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1194,93" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[String.Format(&quot;Ended Component {0}&quot;, strComponentName)]" />
   </Sequence>
 </Activity>
