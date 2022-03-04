@@ -17,7 +17,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1139,1269</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>872,1269</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SetTransactionStatus_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -127,18 +127,7 @@
                     <scg:Dictionary x:TypeArguments="x:String, InArgument" />
                   </ui:SetTransactionStatus.Analytics>
                   <ui:SetTransactionStatus.Output>
-                    <InArgument x:TypeArguments="x:String" x:Key="AppliedPatch_CCR">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_JsobObjCCR.ToString" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="AppliedPatch_AssignTo">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_JsobObjAssignTo.ToString" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="AppliedPatch_CCRAssignTo">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_JsobObjCCRAssignTo.ToString" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="AppliedPatch_OnlyQueue">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_JsobObjOnlyQueue.ToString" />
-                    </InArgument>
+                    <scg:Dictionary x:TypeArguments="x:String, InArgument" />
                   </ui:SetTransactionStatus.Output>
                 </ui:SetTransactionStatus>
               </If.Then>
