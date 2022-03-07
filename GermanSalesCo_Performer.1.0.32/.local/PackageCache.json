@@ -10,10 +10,10 @@
         "C:\\Users\\561625\\.nuget\\packages\\csvhelper/16.0.0\\lib/net45/CsvHelper.dll",
         "C:\\Users\\561625\\.nuget\\packages\\documentformat.openxml/2.5.0\\lib/DocumentFormat.OpenXml.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.visualstudio.ole.interop/7.10.6071\\lib/Microsoft.VisualStudio.OLE.Interop.dll",
+        "C:\\Users\\561625\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.dll",
         "C:\\Users\\561625\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OOXML.dll",
         "C:\\Users\\561625\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OpenXml4Net.dll",
         "C:\\Users\\561625\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OpenXmlFormats.dll",
-        "C:\\Users\\561625\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.dll",
         "C:\\Users\\561625\\.nuget\\packages\\sharpziplib/1.2.0\\lib/net45/ICSharpCode.SharpZipLib.dll",
         "C:\\Users\\561625\\.nuget\\packages\\system.valuetuple/4.5.0\\lib/net461/System.ValueTuple.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.excel.activities/2.8.6\\lib/net461/UiPath.Excel.Activities.Design.dll",
@@ -113,19 +113,19 @@
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.CV.Activities.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.CV.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UIAutomation.Activities.Design.dll",
+        "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UiAutomation.Activities.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UIAutomation.Activities.Package.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UIAutomationCore.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UIAutomationNext.Activities.Design.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UIAutomationNext.Activities.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UIAutomationNext.dll",
-        "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.UiAutomation.Activities.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities/21.4.4\\lib/net461/UiPath.Wizards.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.vision/3.0.1\\lib/net461/UiPath.Vision.AzureComputerVision.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.vision/3.0.1\\lib/net461/UiPath.Vision.Core.dll",
+        "C:\\Users\\561625\\.nuget\\packages\\uipath.vision/3.0.1\\lib/net461/UiPath.Vision.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.vision/3.0.1\\lib/net461/UiPath.Vision.GoogleCloud.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.vision/3.0.1\\lib/net461/UiPath.Vision.Microsoft.dll",
-        "C:\\Users\\561625\\.nuget\\packages\\uipath.vision/3.0.1\\lib/net461/UiPath.Vision.Tesseract.dll",
-        "C:\\Users\\561625\\.nuget\\packages\\uipath.vision/3.0.1\\lib/net461/UiPath.Vision.dll"
+        "C:\\Users\\561625\\.nuget\\packages\\uipath.vision/3.0.1\\lib/net461/UiPath.Vision.Tesseract.dll"
       ],
       "Path": "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4"
     },
@@ -169,6 +169,7 @@
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom/16.0.4690.1000\\lib/net45/Microsoft.Office.Client.Policy.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom/16.0.4690.1000\\lib/net45/Microsoft.Office.Client.TranslationServices.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom/16.0.4690.1000\\lib/net45/Microsoft.Online.SharePoint.Client.Tenant.dll",
+        "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom/16.0.4690.1000\\lib/net45/Microsoft.SharePoint.Client.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom/16.0.4690.1000\\lib/net45/Microsoft.SharePoint.Client.DocumentManagement.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom/16.0.4690.1000\\lib/net45/Microsoft.SharePoint.Client.Publishing.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom/16.0.4690.1000\\lib/net45/Microsoft.SharePoint.Client.Runtime.dll",
@@ -177,7 +178,6 @@
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom/16.0.4690.1000\\lib/net45/Microsoft.SharePoint.Client.Taxonomy.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom/16.0.4690.1000\\lib/net45/Microsoft.SharePoint.Client.UserProfiles.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom/16.0.4690.1000\\lib/net45/Microsoft.SharePoint.Client.WorkflowServices.dll",
-        "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom/16.0.4690.1000\\lib/net45/Microsoft.SharePoint.Client.dll",
         "C:\\Users\\561625\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
         "C:\\Users\\561625\\.nuget\\packages\\sharepointpnp.identitymodel.extensions/1.2.4\\lib/net45/SharePointPnP.IdentityModel.Extensions.dll",
         "C:\\Users\\561625\\.nuget\\packages\\sharepointpnpcore2016/3.12.1908\\lib/net45/Microsoft.Online.SharePoint.Client.Tenant.dll",
@@ -1735,6 +1735,7 @@
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.Office.Client.Policy.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.Office.Client.TranslationServices.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.Online.SharePoint.Client.Tenant.dll",
+        "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.SharePoint.Client.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.SharePoint.Client.DocumentManagement.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.SharePoint.Client.Publishing.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.SharePoint.Client.Runtime.dll",
@@ -1742,8 +1743,7 @@
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.SharePoint.Client.Search.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.SharePoint.Client.Taxonomy.dll",
         "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.SharePoint.Client.UserProfiles.dll",
-        "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.SharePoint.Client.WorkflowServices.dll",
-        "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.SharePoint.Client.dll"
+        "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000\\lib\\net45\\Microsoft.SharePoint.Client.WorkflowServices.dll"
       ],
       "Path": "C:\\Users\\561625\\.nuget\\packages\\microsoft.sharepoint2016.csom\\16.0.4690.1000"
     },
@@ -1773,10 +1773,10 @@
         "Version": "2.4.1"
       },
       "Assemblies": [
+        "C:\\Users\\561625\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.dll",
         "C:\\Users\\561625\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.OOXML.dll",
         "C:\\Users\\561625\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.OpenXml4Net.dll",
-        "C:\\Users\\561625\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.OpenXmlFormats.dll",
-        "C:\\Users\\561625\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.dll"
+        "C:\\Users\\561625\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.OpenXmlFormats.dll"
       ],
       "Path": "C:\\Users\\561625\\.nuget\\packages\\npoi\\2.4.1"
     },
@@ -2131,12 +2131,12 @@
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.CV.Activities.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.CV.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UIAutomation.Activities.Design.dll",
+        "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UiAutomation.Activities.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UIAutomation.Activities.Package.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UIAutomationCore.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UIAutomationNext.Activities.Design.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UIAutomationNext.Activities.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UIAutomationNext.dll",
-        "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.UiAutomation.Activities.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\lib\\net461\\UiPath.Wizards.dll"
       ],
       "Path": "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4"
@@ -2149,10 +2149,10 @@
       "Assemblies": [
         "C:\\Users\\561625\\.nuget\\packages\\uipath.vision\\3.0.1\\lib\\net461\\UiPath.Vision.AzureComputerVision.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.vision\\3.0.1\\lib\\net461\\UiPath.Vision.Core.dll",
+        "C:\\Users\\561625\\.nuget\\packages\\uipath.vision\\3.0.1\\lib\\net461\\UiPath.Vision.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.vision\\3.0.1\\lib\\net461\\UiPath.Vision.GoogleCloud.dll",
         "C:\\Users\\561625\\.nuget\\packages\\uipath.vision\\3.0.1\\lib\\net461\\UiPath.Vision.Microsoft.dll",
-        "C:\\Users\\561625\\.nuget\\packages\\uipath.vision\\3.0.1\\lib\\net461\\UiPath.Vision.Tesseract.dll",
-        "C:\\Users\\561625\\.nuget\\packages\\uipath.vision\\3.0.1\\lib\\net461\\UiPath.Vision.dll"
+        "C:\\Users\\561625\\.nuget\\packages\\uipath.vision\\3.0.1\\lib\\net461\\UiPath.Vision.Tesseract.dll"
       ],
       "Path": "C:\\Users\\561625\\.nuget\\packages\\uipath.vision\\3.0.1"
     },
