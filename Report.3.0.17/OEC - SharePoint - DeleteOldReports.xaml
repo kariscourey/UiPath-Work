@@ -75,7 +75,11 @@
       <Variable x:TypeArguments="x:String" Name="strSiteURL" />
       <Variable x:TypeArguments="s:String[]" Name="arrStrChildren" />
       <Variable x:TypeArguments="x:Int32" Name="intCounter" />
-      <Variable x:TypeArguments="x:String" Default="OEC - SharePoint - DeleteOldReports" Name="strSubProcessName" />
+      <Variable x:TypeArguments="x:String" Name="strSubProcessName">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">OEC - SharePoint - DeleteOldReports</Literal>
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="x:String" Name="strCurrentFile" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="ieRegexOutput" />
       <Variable x:TypeArguments="s:DateTime" Name="dtmCurrentFile" />
@@ -143,11 +147,11 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">300,549</av:Point>
-                      <av:Size x:Key="ShapeSize">200,52</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">400,601.666666666667 399.895,601.666666666667 399.895,611</av:PointCollection>
+                      <av:Size x:Key="ShapeSize">200,22</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">400,571 400,601 399.895,601 399.895,611</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SharePoint_Credential" DisplayName="Get SP Credential" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secStrSPPassword]" Username="[strSPUserName]">
+                  <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SharePoint_Credential" DisplayName="Get SP Credential" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secStrSPPassword]" Username="[strSPUserName]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -263,7 +267,7 @@
                                               <av:PointCollection x:Key="ConnectorLocation">250,1202.66666666667 250,1232.66666666667 247.308333333333,1232.66666666667 247.308333333333,1252.66666666667</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Regex - Apply Regex Pattern workflow" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Components\Regex - Apply Regex Pattern.xaml">
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Regex - Apply Regex Pattern workflow" sap:VirtualizedContainerService.HintSize="358,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Components\Regex - Apply Regex Pattern.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
                                               <InArgument x:TypeArguments="x:String" x:Key="in_StrTextInput">[strCurrentFile]</InArgument>
                                               <InArgument x:TypeArguments="x:String" x:Key="in_StrRegexPattern">\d{2}\-\d{2}\-\d(4)</InArgument>

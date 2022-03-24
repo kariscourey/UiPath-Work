@@ -1,0 +1,45 @@
+﻿
+=================================================
+Starting new set of 4 tests at 12:23:35  PM, 06/07/2020
+=================================================
+12:23:36 PM	Test 1 PASS  ---> Framework\InitAllSettings.xaml
+12:23:36 PM	Test 2 PASS  ---> Tests\IE_OpenDestination_cant_find_PowerBI_page.xaml
+12:23:36 PM	Test 3 FAIL  ---> Tests\IE_OpenDestination_opened_with_error.xaml ---> BusinessException
+12:23:36 PM	Test 4 FAIL  ---> Tests\IE_OpenDestination_success.xaml ---> Success
+================================
+12:23:36	Summary: 2/4 Tests Passed. Total execution time: 1 seconds
+
+=================================================
+Starting new set of 4 tests at 12:25:41  PM, 06/07/2020
+=================================================
+12:25:42 PM	Test 1 PASS  ---> Framework\InitAllSettings.xaml
+12:25:42 PM	Test 2 PASS  ---> Tests\IE_OpenDestination_cant_find_PowerBI_page.xaml
+12:25:42 PM	Test 3 FAIL  ---> Tests\IE_OpenDestination_opened_with_error.xaml ---> BusinessException
+12:25:42 PM	Test 4 FAIL  ---> Tests\IE_OpenDestination_success.xaml ---> Success
+================================
+12:25:42	Summary: 2/4 Tests Passed. Total execution time: 1 seconds
+
+=================================================
+Starting new set of 4 tests at 12:26:55  PM, 06/07/2020
+=================================================
+12:26:55 PM	Test 1 PASS  ---> Framework\InitAllSettings.xaml
+12:26:55 PM	Test 2 PASS  ---> Tests\IE_OpenDestination_cant_find_PowerBI_page.xaml
+12:26:55 PM	Test 3 FAIL  ---> Tests\IE_OpenDestination_opened_with_error.xaml ---> BusinessException
+12:26:55 PM	Test 4 FAIL  ---> Tests\IE_OpenDestination_success.xaml ---> Success
+================================
+12:26:56	Summary: 2/4 Tests Passed. Total execution time: 1 seconds
+
+=================================================
+Starting new set of 4 tests at 12:27:47  PM, 06/07/2020
+=================================================
+12:27:47 PM	Test 1 PASS  ---> Framework\InitAllSettings.xaml
+12:28:10 PM	Test 2 PASS  ---> Tests\IE_OpenDestination\IE_OpenDestination_cant_find_PowerBI_page.xaml
+12:28:44 PM	Test 3 PASS  ---> Tests\IE_OpenDestination\IE_OpenDestination_opened_with_error.xaml
+12:29:18 PM	Test 4 FAIL  ---> Tests\IE_OpenDestination\IE_OpenDestination_success.xaml ---> Success
+================================
+12:29:19	Summary: 3/4 Tests Passed. Total execution time: 92 seconds
+
+=================================================
+Starting new set of 4 tests at 10:59:09  PM, 19/08/2020
+=================================================
+10:59:09 PM	Test 1 PASS  ---> Framework\InitAllSettings.xaml

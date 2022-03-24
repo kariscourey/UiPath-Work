@@ -14,25 +14,19 @@
     "UiPathTeam.SharePoint.Activities": "[1.7.0]"
   },
   "webServices": [],
-  "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "20.4.1.0",
   "projectVersion": "3.0.17",
   "runtimeOptions": {
     "autoDispose": false,
-    "netFrameworkLazyLoading": false,
     "isPausable": true,
-    "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
     "excludedLoggedData": [
       "Private:*",
       "*password*"
     ],
-    "executionType": "Workflow",
-    "readyForPiP": false,
-    "startsInPiP": false,
-    "mustRestoreAllDependencies": false
+    "executionType": "Workflow"
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -41,11 +35,7 @@
       "includeOriginalXaml": false,
       "privateWorkflows": []
     },
-    "processOptions": {
-      "ignoredFiles": []
-    },
-    "fileInfoCollection": [],
-    "modernBehavior": false
+    "fileInfoCollection": []
   },
   "arguments": {
     "input": [
@@ -82,17 +72,5 @@
     ],
     "output": []
   },
-  "expressionLanguage": "VisualBasic",
-  "entryPoints": [
-    {
-      "filePath": "Main.xaml",
-      "uniqueId": "e3aec301-e7fe-4373-99b2-d3b98908c123",
-      "input": [],
-      "output": []
-    }
-  ],
-  "isTemplate": false,
-  "templateProjectData": {},
-  "publishData": {},
-  "targetFramework": "Legacy"
+  "expressionLanguage": "VisualBasic"
 }

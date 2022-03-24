@@ -6336,9 +6336,9 @@
     "restore": {
       "projectUniqueName": "OEC_SR_ServiceRequests_Dispatcher",
       "projectName": "OEC_SR_ServiceRequests_Dispatcher",
-      "projectPath": "C:\\Users\\561625\\Documents\\UiPath Work\\Projects\\OEC_SR_ServiceRequests_Dispatcher.2.0.2\\.local",
+      "projectPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\OEC_SR_ServiceRequests_Dispatcher.2.0.2 (Dev)\\.local",
       "packagesPath": "C:\\Users\\561625\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\561625\\Documents\\UiPath Work\\Projects\\OEC_SR_ServiceRequests_Dispatcher.2.0.2\\.local"
+      "outputPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\OEC_SR_ServiceRequests_Dispatcher.2.0.2 (Dev)\\.local"
     },
     "frameworks": {
       "net461": {
@@ -6369,7 +6369,7 @@
             "version": "[1.7.0, 1.7.0]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\561625\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
