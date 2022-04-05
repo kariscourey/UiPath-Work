@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>OEC_SR_ServiceRequests_Dispatcher</id>
+    <version>2.0.2</version>
+    <authors>GJ016450</authors>
+    <owners>GJ016450</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Process fetches data from Oracle B2B Sales cloud and inserts into Service Requests UiPath Queue.</description>
+    <releaseNotes>Removed superfluous looping flows and calls to speed up queue string assembly.
+Increased timeout in asset to allow for OEC lag.</releaseNotes>
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.1">
+        <dependency id="UiPath.Excel.Activities" version="[2.10.4]" />
+        <dependency id="UiPath.System.Activities" version="[21.4.1]" />
+        <dependency id="UiPath.UIAutomation.Activities" version="[21.4.4]" />
+        <dependency id="UiPath.WebAPI.Activities" version="[1.7.0]" />
+        <dependency id="UiPathTeam.SharePoint.Activities" version="[1.7.0]" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
