@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="OEC_Germany___Download_LookUp_and_Populate_CurrentQueue" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umm="clr-namespace:UiPath.MicrosoftOffice365.Models;assembly=UiPath.MicrosoftOffice365" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="OEC_Germany___Download_LookUp_and_Populate_CurrentQueue" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="out_strTotalCurrentQueues" Type="OutArgument(x:String)" />
@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1094,1382</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1170,1382</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>OEC_EMEA___Download_LookUp_and_Populate_CurrentQueue_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -66,8 +66,8 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.Memory.Data</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="OEC_Germany___Download_LookUp_and_Populate_CurrentQueue" sap:VirtualizedContainerService.HintSize="1104,1317" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -108,7 +108,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,353.166666666667 300,403.166666666667</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Sharepoint - Legacy Activities - Download File workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Components\Sharepoint - Legacy Activities - Download File.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Sharepoint - Legacy Activities - Download File workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Components\Sharepoint - Legacy Activities - Download File.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="in_StrSiteURL">
             <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_SiteURL&quot;).ToString" />
@@ -131,13 +131,6 @@
           <InArgument x:TypeArguments="x:String" x:Key="in_StrNameLookupSheet">
             <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;GermanSales_LookupSheet_Name&quot;).ToString" />
           </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_StrListURL">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;GermanSales_Dispatcher_ListURL&quot;).ToString" />
-          </InArgument>
-          <OutArgument x:TypeArguments="umm:Office365SharepointList" x:Key="out_LookupList" />
-          <InArgument x:TypeArguments="x:String" x:Key="in_StrListName">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;GermanSales_Dispatcher_ListName&quot;).ToString" />
-          </InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <FlowStep.Next>
@@ -149,11 +142,23 @@
               <av:PointCollection x:Key="ConnectorLocation">300,454.166666666667 300,510</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Excel - Extract - Extract DataTable workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Components\Excel - Extract - Extract DataTable.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Excel - Extract - Extract DataTable workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Components\Excel - Extract - Extract DataTable.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrFilePath">[strFilePath]</InArgument>
-              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtLookUp">[dtLookUp]</OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_Queues">[quickQueues]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrFilePath">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFilePath" />
+              </InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtLookUp">
+                <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dtLookUp" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_Queues">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="quickQueues" />
+              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrListURL">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;GermanSales_ListURL&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrListName">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;GermanSales_ListName&quot;).ToString" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
