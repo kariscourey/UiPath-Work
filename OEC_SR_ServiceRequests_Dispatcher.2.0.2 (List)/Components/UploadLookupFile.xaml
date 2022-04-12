@@ -1,20 +1,17 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Sharepoint___Legacy___Download_File" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Sharepoint___Legacy___Download_File" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_StrSiteURL" Type="InArgument(x:String)" />
-    <x:Property Name="in_StrUsername" Type="InArgument(x:String)" />
-    <x:Property Name="in_SecStrPassword" Type="InArgument(ss:SecureString)" />
-    <x:Property Name="in_StrRelativeURL" Type="InArgument(x:String)" />
     <x:Property Name="in_StrLocalPath" Type="InArgument(x:String)" />
     <x:Property Name="out_StrFilePath" Type="OutArgument(x:String)" />
     <x:Property Name="in_StrNameLookupSheet" Type="InArgument(x:String)" />
+    <x:Property Name="in_DtLookUp" Type="InArgument(sd:DataTable)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1031,3034</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>971,2033</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>IE___Any_Screen___Navigate_to_URL_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="42">
+    <scg:List x:TypeArguments="x:String" Capacity="84">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -53,6 +50,12 @@
       <x:String>UiPathTeam.SharePoint</x:String>
       <x:String>UiPathTeam.SharePoint.Activities</x:String>
       <x:String>UiPathTeam.SharePoint.Activities.Libraries</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -96,11 +99,19 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>UiPathTeam.SharePoint.Activities</AssemblyReference>
       <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="&#xA;Component to download a file from a given sharepoint site directory which otputs the file path" DisplayName="Sharepoint - Legacy Activities - Download File" sap:VirtualizedContainerService.HintSize="663,2969" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="&#xA;Component to upload a file from a given datatable to Sharepoint site directory" DisplayName="UploadLookupFile" sap:VirtualizedContainerService.HintSize="663,1968" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Default="Sharepoint - Legacy Activities - Download File" Name="strComponentName" />
+      <Variable x:TypeArguments="x:String" Name="strComponentName">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">UploadLookupFile</Literal>
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="x:Boolean" Name="boolFileExists" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -110,44 +121,12 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="621,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;Started Component {0}&quot;, strComponentName)]" />
-    <Sequence DisplayName="Check Arguments In" sap:VirtualizedContainerService.HintSize="621,1786" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence DisplayName="Check Arguments In" sap:VirtualizedContainerService.HintSize="621,630" sap2010:WorkflowViewState.IdRef="Sequence_7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[String.IsNullOrWhiteSpace(in_StrSiteURL)]" DisplayName="Check Argument in_StrSiteURL" sap:VirtualizedContainerService.HintSize="579,249" sap2010:WorkflowViewState.IdRef="If_5">
-        <If.Then>
-          <Throw DisplayName="Throw In Argument AE" Exception="[New Exception(&quot;Incoming Argument in_StrSiteURL is Null or Not Populated&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_5" />
-        </If.Then>
-        <If.Else>
-          <ui:LogMessage DisplayName="Log Message - Incoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[String.Format(&quot;Incoming Argument in_StrSiteURL (Ref: {0}) is Not Null and is Populated&quot;, in_StrSiteURL )]" />
-        </If.Else>
-      </If>
-      <If Condition="[String.IsNullOrWhiteSpace(in_StrUsername)]" DisplayName="Check Argument in_StrUsername" sap:VirtualizedContainerService.HintSize="579,249" sap2010:WorkflowViewState.IdRef="If_8">
-        <If.Then>
-          <Throw DisplayName="Throw In Argument AE" Exception="[New Exception(&quot;Incoming Argument in_StrUsername is Null or Not Populated&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_8" />
-        </If.Then>
-        <If.Else>
-          <ui:LogMessage DisplayName="Log Message - Incoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[String.Format(&quot;Incoming Argument in_StrUsername (Ref: {0}) is Not Null and is Populated&quot;, in_StrUsername )]" />
-        </If.Else>
-      </If>
-      <If Condition="[in_SecStrPassword is Nothing]" DisplayName="Check Argument in_SecStrPassword" sap:VirtualizedContainerService.HintSize="579,249" sap2010:WorkflowViewState.IdRef="If_9">
-        <If.Then>
-          <Throw DisplayName="Throw In Argument AE" Exception="[New Exception(&quot;Incoming Argument in_SecStrPassword is Null or Not Populated&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_9" />
-        </If.Then>
-        <If.Else>
-          <ui:LogMessage DisplayName="Log Message - Incoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="[String.Format(&quot;Incoming Argument in_SecStrPassword is Not Null and is Populated&quot;)]" />
-        </If.Else>
-      </If>
-      <If Condition="[String.IsNullOrWhiteSpace(in_StrRelativeURL)]" DisplayName="Check Argument in_StrRelativeURL" sap:VirtualizedContainerService.HintSize="579,249" sap2010:WorkflowViewState.IdRef="If_12">
-        <If.Then>
-          <Throw DisplayName="Throw In Argument AE" Exception="[New Exception(&quot;Incoming Argument in_StrRelativeURL is Null or Not Populated&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_12" />
-        </If.Then>
-        <If.Else>
-          <ui:LogMessage DisplayName="Log Message - Incoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Trace" Message="[String.Format(&quot;Incoming Argument in_StrUsername (Ref: {0}) is Not Null and is Populated&quot;, in_StrUsername )]" />
-        </If.Else>
-      </If>
       <If Condition="[String.IsNullOrWhiteSpace(in_StrLocalPath)]" DisplayName="Check Argument in_StrLocalPath" sap:VirtualizedContainerService.HintSize="579,249" sap2010:WorkflowViewState.IdRef="If_13">
         <If.Then>
           <Throw DisplayName="Throw In Argument AE" Exception="[New Exception(&quot;Incoming Argument in_StrLocalPath is Null or Not Populated&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_13" />
@@ -165,6 +144,7 @@
         </If.Else>
       </If>
     </Sequence>
+    <ui:WriteRange AddHeaders="True" DataTable="[in_DtLookup]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="621,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[path.Combine(in_StrLocalPath, in_StrNameLookupSheet)]" />
     <Sequence DisplayName="Check Argument Out" sap:VirtualizedContainerService.HintSize="621,747" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -184,7 +164,7 @@
           </Assign>
         </If.Then>
       </If>
-      <If Condition="[String.IsNullOrWhiteSpace( out_StrFilePath)]" DisplayName="Check Argument out_StrFilePath" sap:VirtualizedContainerService.HintSize="579,249" sap2010:WorkflowViewState.IdRef="If_15">
+      <If Condition="[String.IsNullOrWhiteSpace(out_StrFilePath)]" DisplayName="Check Argument out_StrFilePath" sap:VirtualizedContainerService.HintSize="579,249" sap2010:WorkflowViewState.IdRef="If_15">
         <If.Then>
           <Throw DisplayName="Throw In Argument AE" Exception="[New Exception(&quot;Outcoming Argument  out_StrFilePath is Null or Not Populated&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_14" />
         </If.Then>
