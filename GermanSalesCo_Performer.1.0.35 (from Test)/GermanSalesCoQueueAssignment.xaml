@@ -14,7 +14,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1207,2697</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1207,3328</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GermanSalesCoQueueAssignment_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="40">
@@ -61,7 +61,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="35">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -97,10 +97,9 @@
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
       <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="990,2632" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap:VirtualizedContainerService.HintSize="990,3263" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="status" />
       <Variable x:TypeArguments="sd:DataTable" Name="AccountLookup" />
@@ -120,6 +119,8 @@
       <Variable x:TypeArguments="x:String" Default="GermanSalesCoQueueAssignment" Name="strComponentName" />
       <Variable x:TypeArguments="x:String" Name="result_OnlyQueue" />
       <Variable x:TypeArguments="x:String" Name="strAccountLookup" />
+      <Variable x:TypeArguments="x:String" Name="strFilterTableQueue" />
+      <Variable x:TypeArguments="x:String" Name="strFilterTableAccount" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -130,7 +131,7 @@
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="948,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[String.Format(&quot;Started Component {0}&quot;, strComponentName)]" />
     <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[AccountLookup]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="948,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="in" WorkbookPath="[in_StrFilePathLookupSheet]" />
     <ui:OutputDataTable DataTable="[AccountLookup]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="948,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[strAccountLookup]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="948,91" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[strAccountLookup]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="948,91" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;LOOKUP TABLE: &quot; + strAccountLookup]" />
     <ui:FilterDataTable DataTable="[AccountLookup]" DisplayName="Filter Data Table - CurrentQueue" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="948,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[FilterTableQueue]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
@@ -150,6 +151,8 @@
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
+    <ui:OutputDataTable DataTable="[FilterTableQueue]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="948,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[strFilterTableQueue]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="948,91" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;FILTER TABLE QUEUE: &quot; + strFilterTableQueue]" />
     <If Condition="[FilterTableQueue.Rows.Count &gt; 0]" DisplayName="If OEC SR Queue (QueueName) equals Current Queue on the look-up table" sap:VirtualizedContainerService.HintSize="948,318" sap2010:WorkflowViewState.IdRef="If_4">
       <If.Then>
         <ui:FilterDataTable DataTable="[FilterTableQueue]" DisplayName="Filter Data Table - Account Number" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[FilterTableAccount]" SelectColumnsMode="Keep">
@@ -183,9 +186,13 @@
         </Sequence>
       </If.Else>
     </If>
-    <If Condition="[FilterTableAccount.Rows.Count &gt; 0]" DisplayName="If OEC SR Account (AccountN_c) equals the Account # on the look-up table" sap:VirtualizedContainerService.HintSize="948,688" sap2010:WorkflowViewState.IdRef="If_5">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="948,91" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[FilterTableQueue.Columns(&quot;Account #&quot;).DataType.ToString]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="948,91" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;TRANSACTION ACCOUNT: &quot; + TransactionItem.SpecificContent(&quot;AccountN_c&quot;).ToString]" />
+    <ui:OutputDataTable DataTable="[FilterTableAccount]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="948,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_3" Text="[strFilterTableAccount]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="948,91" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;FILTER TABLE ACCOUNT: &quot; + strFilterTableAccount]" />
+    <If Condition="[FilterTableAccount.Rows.Count &gt; 0]" DisplayName="If OEC SR Account (AccountN_c) equals the Account # on the look-up table" sap:VirtualizedContainerService.HintSize="948,686" sap2010:WorkflowViewState.IdRef="If_5">
       <If.Then>
-        <Sequence DisplayName="Look-up table assign queue exists in OEC" sap:VirtualizedContainerService.HintSize="376,530" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Look-up table assign queue exists in OEC" sap:VirtualizedContainerService.HintSize="376,528" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="AssignTo" />
             <Variable x:TypeArguments="x:String" Name="CurrentQueue" />
@@ -259,7 +266,7 @@
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Postman_API_Update Sr workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Postman_API_Update Sr.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Postman_API_Update Sr workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Postman_API_Update Sr.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="CustomerCareRepresentative_c">[CustomerCareRepresentative_c]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="CustomerCareRep">[CustomerCareRep]</InArgument>
@@ -308,7 +315,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch - Per Patch type" Expression="[strPatchType]" sap:VirtualizedContainerService.HintSize="948,215.333333333333" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch - Per Patch type" Expression="[strPatchType]" sap:VirtualizedContainerService.HintSize="948,200" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <Sequence x:Key="CCR" DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="526,646.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_15">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
