@@ -29,7 +29,7 @@
     <x:Property Name="result_AssignTo" Type="OutArgument(x:String)" />
     <x:Property Name="result_CCRAssignTo" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1365,2754</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1365,2752</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -107,7 +107,7 @@
       <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1375,2689" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence sap:VirtualizedContainerService.HintSize="1375,2687" sap2010:WorkflowViewState.IdRef="Sequence_10">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="Postman_API_Update Sr" Name="strComponentName" />
     </Sequence.Variables>
@@ -1020,6 +1020,6 @@
       <x:Reference>__ReferenceID26</x:Reference>
       <x:Reference>__ReferenceID27</x:Reference>
     </Flowchart>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1333,93" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[String.Format(&quot;Ended Component {0}&quot;, strComponentName)]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1333,91" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[String.Format(&quot;Ended Component {0}&quot;, strComponentName)]" />
   </Sequence>
 </Activity>
