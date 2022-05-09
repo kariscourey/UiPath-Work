@@ -100,11 +100,16 @@
       <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
       <AssemblyReference>System.Memory.Data</AssemblyReference>
       <AssemblyReference>UiPathTeam.SharePoint.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="&#xA;Component that, given SharePoint details, reads the list and extracts it as a datatable " DisplayName="SharePoint-Extract_Lookup_List" sap:VirtualizedContainerService.HintSize="1210,3957" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="&#xA;Component that, given SharePoint details, reads the list and extracts it as a datatable " DisplayName="SharePoint-Extract_Lookup_List" sap:VirtualizedContainerService.HintSize="1210,4219" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Default="Sharepoint-ExtractList" Name="strComponentName" />
+      <Variable x:TypeArguments="x:String" Name="strComponentName">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">Sharepoint-Extract_List</Literal>
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="x:Boolean" Name="boolFileExists" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -158,7 +163,7 @@
         </ActivityAction>
       </usa:SharepointApplicationScope.Body>
     </usa:SharepointApplicationScope>
-    <ui:FilterDataTable DataTable="[out_DtLookUp]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="1168,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[out_DtLookUp]" SelectColumnsMode="Keep">
+    <ui:FilterDataTable DataTable="[out_DtLookUp]" DisplayName="Filter Data Table - remove rows where field_1 is empty (Queue Name), only output necessary columns" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="1168,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[out_DtLookUp]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
@@ -178,6 +183,52 @@
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
+    <ui:MultipleAssign DisplayName="Multiple Assign - change column headers of datatable" sap:VirtualizedContainerService.HintSize="1168,222" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_DtLookUp.Columns(“Title”).ColumnName]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">Current Queue</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_DtLookUp.Columns(“field_1”).ColumnName]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">Account #</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_DtLookUp.Columns(“field_2”).ColumnName]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">Assign Queue</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_DtLookUp.Columns(“field_3”).ColumnName]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">Customer Care Rep</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_DtLookUp.Columns(“field_4”).ColumnName]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">Assign To</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1168,532" sap2010:WorkflowViewState.IdRef="CommentOut_7">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,454" sap2010:WorkflowViewState.IdRef="Sequence_30">
@@ -226,7 +277,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[String.IsNullOrWhiteSpace(CurrentRow(&quot;Title&quot;).ToString)]" DisplayName="Check Argument out_StrCurrentQueue" sap:VirtualizedContainerService.HintSize="1092,419" sap2010:WorkflowViewState.IdRef="If_16">
+            <If Condition="[String.IsNullOrWhiteSpace(CurrentRow(&quot;Current Queue&quot;).ToString)]" DisplayName="Check Argument out_StrCurrentQueue" sap:VirtualizedContainerService.HintSize="1092,419" sap2010:WorkflowViewState.IdRef="If_16">
               <If.Then>
                 <Throw DisplayName="Throw In Argument AE" Exception="[New Exception(&quot;Outcoming Argument  out_StrCurrentQueue is Null or Not Populated&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_15" />
               </If.Then>
@@ -239,7 +290,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message - Outcoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Trace" Message="[String.Format(&quot;Outcoming Argument  out_queue (Ref: {0}) is Not Null and is Populated&quot;,  CurrentRow(&quot;Title&quot;).ToString )]" />
+                      <ui:LogMessage DisplayName="Log Message - Outcoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Trace" Message="[String.Format(&quot;Outcoming Argument  out_queue (Ref: {0}) is Not Null and is Populated&quot;,  CurrentRow(&quot;Current Queue&quot;).ToString )]" />
                     </Sequence>
                   </ui:CommentOut.Body>
                 </ui:CommentOut>
@@ -252,7 +303,7 @@
                     <OutArgument x:TypeArguments="x:String">[out_Queues]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">["'" + CurrentRow("Title").ToString + "'"]</InArgument>
+                    <InArgument x:TypeArguments="x:String">["'" + CurrentRow("Current Queue").ToString + "'"]</InArgument>
                   </Assign.Value>
                 </Assign>
               </If.Then>
@@ -263,7 +314,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[out_Queues.Contains(CurrentRow(&quot;Title&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="743,419" sap2010:WorkflowViewState.IdRef="If_19">
+                  <If Condition="[out_Queues.Contains(CurrentRow(&quot;Current Queue&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="743,419" sap2010:WorkflowViewState.IdRef="If_19">
                     <If.Then>
                       <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,261" sap2010:WorkflowViewState.IdRef="CommentOut_2">
                         <ui:CommentOut.Body>
@@ -273,7 +324,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message - Outcoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Trace" Message="[String.Format(&quot;Queue string list already contains  {0}&quot;,  CurrentRow(&quot;Title&quot;).ToString )]" />
+                            <ui:LogMessage DisplayName="Log Message - Outcoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Trace" Message="[String.Format(&quot;Queue string list already contains  {0}&quot;,  CurrentRow(&quot;Current Queue&quot;).ToString )]" />
                           </Sequence>
                         </ui:CommentOut.Body>
                       </ui:CommentOut>
@@ -284,7 +335,7 @@
                           <OutArgument x:TypeArguments="x:String">[out_Queues]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[out_Queues +" or " + "'"+ CurrentRow("Title").ToString + "'"]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[out_Queues +" or " + "'"+ CurrentRow("Current Queue").ToString + "'"]</InArgument>
                         </Assign.Value>
                       </Assign>
                     </If.Else>

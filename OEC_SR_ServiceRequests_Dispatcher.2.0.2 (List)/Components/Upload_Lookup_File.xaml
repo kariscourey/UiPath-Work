@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>971,2033</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>721,2033</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>IE___Any_Screen___Navigate_to_URL_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="84">
@@ -101,7 +101,6 @@
       <AssemblyReference>netstandard</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
@@ -109,7 +108,7 @@
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strComponentName">
         <Variable.Default>
-          <Literal x:TypeArguments="x:String">UploadLookupFile</Literal>
+          <Literal x:TypeArguments="x:String">Upload_Lookup_File</Literal>
         </Variable.Default>
       </Variable>
       <Variable x:TypeArguments="x:Boolean" Name="boolFileExists" />
