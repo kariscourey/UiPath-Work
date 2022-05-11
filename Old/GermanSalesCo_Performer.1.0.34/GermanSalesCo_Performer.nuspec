@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>GermanSalesCo_Performer</id>
+    <version>1.0.34</version>
+    <title>GermanSalesCo_Performer</title>
+    <authors>561625</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Blank Process</description>
+    <releaseNotes>Optimized Postman_API_Update component. Permitted processing if neither CCR nor Assign To fields can be populated from lookup table. Added check for changed queue after Dispatcher.</releaseNotes>
+    <tags>VisualBasic VB UiPathStudioProcess</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.1">
+        <dependency id="UiPath.Excel.Activities" version="[2.8.6]" />
+        <dependency id="UiPath.Mail.Activities" version="[1.8.6]" />
+        <dependency id="UiPath.System.Activities" version="[21.4.1]" />
+        <dependency id="UiPath.UIAutomation.Activities" version="[21.4.4]" />
+        <dependency id="UiPath.WebAPI.Activities" version="[1.7.0]" />
+        <dependency id="UiPathTeam.SharePoint.Activities" version="[1.7.0]" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
