@@ -7,6 +7,7 @@
     <x:Property Name="out_JsonObjAssignTo" Type="OutArgument(njl:JObject)" />
     <x:Property Name="out_JsonObjCCRAssignTo" Type="OutArgument(njl:JObject)" />
     <x:Property Name="out_JsonObjOnlyQueue" Type="OutArgument(njl:JObject)" />
+    <x:Property Name="in_AccountLookup" Type="InArgument(sd:DataTable)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -89,7 +90,7 @@
       <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="412,672" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="376,520" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="password" />
       <Variable x:TypeArguments="x:String" Name="userName" />
@@ -106,32 +107,41 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Sharepoint - Legacy Activities - Download File workflow" sap:VirtualizedContainerService.HintSize="370,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sharepoint-Legacy_Activities-Download_File.xaml">
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="egun_oracleb2b_credential" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[userName]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GermanSalesCo_Queue_Assignment workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="GermanSalesCo_Queue_Assignment.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrSiteURL">[in_Config("SharePoint_SiteURL").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrUsername">[strSPUserName]</InArgument>
-        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_SecStrPassword">[secStrSPPassword]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrRelativeURL">[in_Config("GermanSales_SharePoint_RelativeURL").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrLocalPath">[in_Config("LookupSheet_LocalPath").ToString]</InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_StrFilePath">[strFilePath]</OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrNameLookupSheet">[in_Config("GermanSales_LookupSheet_Name").ToString]</InArgument>
+        <InArgument x:TypeArguments="ui:QueueItem" x:Key="TransactionItem">
+          <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="userName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="userName" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="password">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="new System.Net.NetworkCredential(string.Empty, password).Password" />
+        </InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="Config">
+          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+        </InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DtReportingDatatable">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_DtReportingDatatable" />
+        </InOutArgument>
+        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjAssignTo">
+          <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_JsonObjAssignTo" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjCCR">
+          <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_JsonObjCCR" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjCCRAssignTo">
+          <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_JsonObjCCRAssignTo" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjOnlyQueue">
+          <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_JsonObjOnlyQueue" />
+        </OutArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_AccountLookup">
+          <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_AccountLookup" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="egun_oracleb2b_credential" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="370,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[userName]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GermanSalesCoQueueAssignment workflow" sap:VirtualizedContainerService.HintSize="370,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="GermanSalesCoQueueAssignment.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="ui:QueueItem" x:Key="TransactionItem">[in_TransactionItem]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="userName">[userName]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="password">[new System.Net.NetworkCredential(string.Empty, password).Password]</InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="Config">[in_Config]</InArgument>
-        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DtReportingDatatable">[io_DtReportingDatatable]</InOutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrFilePathLookupSheet">[strFilePath]</InArgument>
-        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjAssignTo">[out_JsonObjAssignTo]</OutArgument>
-        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjCCR">[out_JsonObjCCR]</OutArgument>
-        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjCCRAssignTo">[out_JsonObjCCRAssignTo]</OutArgument>
-        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjOnlyQueue">[out_JsonObjOnlyQueue]</OutArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="370,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="334,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
   </Sequence>
 </Activity>

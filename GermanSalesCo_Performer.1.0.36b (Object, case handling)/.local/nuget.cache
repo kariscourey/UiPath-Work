@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yrl1EQkVtjd+YavAGaonGpOXc61VDM0yWv0m2Dt9a6hTWePfvVTGqCd0O3eDlMbzvVvkgku0uGyllee5KfqHcA==",
+  "dgSpecHash": "Hn8+SB3d6EPQkoxIUjEZ9zNPn8+dStG63HN/OsGKKo+gVzDmKiWd6l+eHjIcNtT/2h5SB0NwyL3bUS8fGycGag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\GermanSalesCo_Performer.1.0.36 (Object handling)\\.local\\",
+  "projectFilePath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\GermanSalesCo_Performer.1.0.36b (Object, case handling)\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\561625\\.nuget\\packages\\anglesharp\\0.9.9\\anglesharp.0.9.9.nupkg.sha512",
     "C:\\Users\\561625\\.nuget\\packages\\avalonedit\\6.0.1\\avalonedit.6.0.1.nupkg.sha512",
