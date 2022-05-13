@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
@@ -12,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>561,856</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1064,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -88,10 +87,9 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
       <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="420,791" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="412,672" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="password" />
       <Variable x:TypeArguments="x:String" Name="userName" />
@@ -108,34 +106,19 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SharePoint_Credential" DisplayName="Get SharePoint Credentials" sap:VirtualizedContainerService.HintSize="378,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[secStrSPPassword]" Username="[strSPUserName]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Sharepoint - Legacy Activities - Download File workflow" sap:VirtualizedContainerService.HintSize="378,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sharepoint-Legacy_Activities-Download_File.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Sharepoint - Legacy Activities - Download File workflow" sap:VirtualizedContainerService.HintSize="370,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sharepoint-Legacy_Activities-Download_File.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrSiteURL">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_SiteURL&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrUsername">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strSPUserName" />
-        </InArgument>
-        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_SecStrPassword">
-          <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="secStrSPPassword" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrRelativeURL">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;GermanSales_SharePoint_RelativeURL&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrLocalPath">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;LookupSheet_LocalPath&quot;).ToString" />
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_StrFilePath">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strFilePath" />
-        </OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrNameLookupSheet">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;GermanSales_LookupSheet_Name&quot;).ToString" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrSiteURL">[in_Config("SharePoint_SiteURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrUsername">[strSPUserName]</InArgument>
+        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_SecStrPassword">[secStrSPPassword]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrRelativeURL">[in_Config("GermanSales_SharePoint_RelativeURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrLocalPath">[in_Config("LookupSheet_LocalPath").ToString]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_StrFilePath">[strFilePath]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrNameLookupSheet">[in_Config("GermanSales_LookupSheet_Name").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="egun_oracleb2b_credential" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="378,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[userName]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GermanSalesCoQueueAssignment workflow" sap:VirtualizedContainerService.HintSize="378,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="GermanSalesCoQueueAssignment.xaml">
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="egun_oracleb2b_credential" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="370,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[userName]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GermanSalesCoQueueAssignment workflow" sap:VirtualizedContainerService.HintSize="370,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="GermanSalesCoQueueAssignment.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="ui:QueueItem" x:Key="TransactionItem">[in_TransactionItem]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="userName">[userName]</InArgument>
@@ -149,6 +132,6 @@
         <OutArgument x:TypeArguments="njl:JObject" x:Key="out_jsonobjOnlyQueue">[out_JsonObjOnlyQueue]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="378,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="370,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
   </Sequence>
 </Activity>
