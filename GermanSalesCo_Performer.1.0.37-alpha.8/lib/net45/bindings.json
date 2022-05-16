@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "resources": [
+    {
+      "resource": "queue",
+      "metadata": {
+        "Value": {
+          "defaultValue": "in_Config(\"OrchestratorQueueName\").ToString",
+          "isExpression": false
+        },
+        "FolderPath": {
+          "isExpression": true
+        }
+      }
+    },
+    {
+      "resource": "asset",
+      "metadata": {
+        "Value": {
+          "defaultValue": "row(\"Asset\").ToString",
+          "isExpression": false
+        },
+        "FolderPath": {
+          "defaultValue": "row(\"OrchestratorAssetFolder\").ToString",
+          "isExpression": false
+        }
+      }
+    },
+    {
+      "resource": "queue",
+      "metadata": {
+        "FolderPath": {
+          "isExpression": true
+        }
+      }
+    },
+    {
+      "resource": "asset",
+      "metadata": {
+        "Value": {
+          "defaultValue": "egun_oracleb2b_credential",
+          "isExpression": false
+        },
+        "FolderPath": {
+          "isExpression": true
+        }
+      }
+    }
+  ]
+}
