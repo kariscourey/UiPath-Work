@@ -3834,9 +3834,9 @@
     "restore": {
       "projectUniqueName": "PowerBI_Server_Upload",
       "projectName": "PowerBI_Server_Upload",
-      "projectPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\PowerBI_Server_Upload.1.0.1\\.local",
+      "projectPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\Power BI Report Process\\PowerBI_Server_Upload.1.0.1\\.local",
       "packagesPath": "C:\\Users\\561625\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\PowerBI_Server_Upload.1.0.1\\.local"
+      "outputPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\Power BI Report Process\\PowerBI_Server_Upload.1.0.1\\.local"
     },
     "frameworks": {
       "net461": {
