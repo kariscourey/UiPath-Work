@@ -3,10 +3,7 @@
   "description": "TQA Reporting Solution.",
   "main": "Main.xaml",
   "dependencies": {
-    "TQA.DataTable": "[1.0.3]",
     "TQA.Email": "[1.0.9]",
-    "TQA.Excel.and.Workbook": "[2.0.1]",
-    "TQA.System": "[1.0.4]",
     "UiPath.Excel.Activities": "[2.8.6]",
     "UiPath.System.Activities": "[21.4.0-preview]",
     "UiPath.UIAutomation.Activities": "[20.4.2]",
