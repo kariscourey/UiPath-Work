@@ -1,13 +1,13 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="IE___Any_Screen___Navigate_to_URL" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:us="clr-namespace:UiPathTeam.SharePoint;assembly=UiPathTeam.SharePoint" xmlns:usa="clr-namespace:UiPathTeam.SharePoint.Activities;assembly=UiPathTeam.SharePoint.Activities" xmlns:usal="clr-namespace:UiPathTeam.SharePoint.Activities.Libraries;assembly=UiPathTeam.SharePoint.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_StrSiteURL" Type="InArgument(x:String)" />
-    <x:Property Name="in_StrRelativeURL" Type="InArgument(x:String)" />
-    <x:Property Name="in_StrLocalPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_StrSharePointPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_StrLocalFilePath" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>984,1849</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1231,1849</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>IE___Any_Screen___Navigate_to_URL_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -36,6 +36,9 @@
       <x:String>Microsoft.Graph</x:String>
       <x:String>System.Net</x:String>
       <x:String>Microsoft.SharePoint.Client</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -73,6 +76,9 @@
       <AssemblyReference>Microsoft.SharePoint.Client</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Component Description&#xA;Component to upload a file to a given sharepoint site directory" DisplayName="Upload_File_to_SharePoint" sap:VirtualizedContainerService.HintSize="663,1784" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -100,20 +106,20 @@
           <ui:LogMessage DisplayName="Log Message - Incoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[String.Format(&quot;Incoming Argument in_StrSiteURL (Ref: {0}) is Not Null and is Populated&quot;, in_StrSiteURL )]" />
         </If.Else>
       </If>
-      <If Condition="[String.IsNullOrWhiteSpace(in_StrRelativeURL)]" DisplayName="Check Argument in_StrRelativeURL" sap:VirtualizedContainerService.HintSize="579,249" sap2010:WorkflowViewState.IdRef="If_12">
+      <If Condition="[String.IsNullOrWhiteSpace(in_StrSharePointPath)]" DisplayName="Check Argument in_StrRelativeURL" sap:VirtualizedContainerService.HintSize="579,249" sap2010:WorkflowViewState.IdRef="If_12">
         <If.Then>
           <Throw DisplayName="Throw In Argument AE" Exception="[New Exception(&quot;Incoming Argument in_StrRelativeURL is Null or Not Populated&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_12" />
         </If.Then>
         <If.Else>
-          <ui:LogMessage DisplayName="Log Message - Incoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Trace" Message="[String.Format(&quot;Incoming Argument in_StrRelativeURL (Ref: {0}) is Not Null and is Populated&quot;, in_StrRelativeURL )]" />
+          <ui:LogMessage DisplayName="Log Message - Incoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Trace" Message="[String.Format(&quot;Incoming Argument in_StrRelativeURL (Ref: {0}) is Not Null and is Populated&quot;, in_StrSharePointPath )]" />
         </If.Else>
       </If>
-      <If Condition="[String.IsNullOrWhiteSpace(in_StrLocalPath)]" DisplayName="Check Argument in_StrLocalPath" sap:VirtualizedContainerService.HintSize="579,249" sap2010:WorkflowViewState.IdRef="If_13">
+      <If Condition="[String.IsNullOrWhiteSpace(in_StrLocalFilePath)]" DisplayName="Check Argument in_StrLocalPath" sap:VirtualizedContainerService.HintSize="579,249" sap2010:WorkflowViewState.IdRef="If_13">
         <If.Then>
           <Throw DisplayName="Throw In Argument AE" Exception="[New Exception(&quot;Incoming Argument in_StrLocalPath is Null or Not Populated&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_13" />
         </If.Then>
         <If.Else>
-          <ui:LogMessage DisplayName="Log Message - Incoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Trace" Message="[String.Format(&quot;Incoming Argument in_StrLocalPath (Ref: {0}) is Not Null and is Populated&quot;, in_StrLocalPath )]" />
+          <ui:LogMessage DisplayName="Log Message - Incoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Trace" Message="[String.Format(&quot;Incoming Argument in_StrLocalPath (Ref: {0}) is Not Null and is Populated&quot;, in_StrLocalFilePath )]" />
         </If.Else>
       </If>
     </Sequence>
@@ -136,7 +142,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <usal:UploadFile AttachmentsAction="{x:Null}" PropertiesToAdd="{x:Null}" RelativeUrlHintText="{x:Null}" AllowOperationsOnASPXFiles="False" AllowOverwrite="True" CheckInFileAfterCreation="False" CheckOutFileBeforeOverwrite="False" ChooseFile="True" DisplayName="Upload file" sap:VirtualizedContainerService.HintSize="273,104" sap2010:WorkflowViewState.IdRef="UploadFile_1" LocalPath="[in_StrLocalPath]" LocalPathHintText="The current local path of the file" RelativeUrl="[in_StrRelativeURL]" ShowAttachFiles="False" ShowCAMLQuery="False" ShowCAMLWarning="False" ShowGroupDescription="False" ShowGroupName="False" ShowLibraryName="False" ShowListName="False" ShowLocalPath="True" ShowMove="False" ShowPermissionDropdown="False" ShowPropertiesDictionary="False" ShowRelativeUrl="True" ShowRename="False" ShowUserName="False" />
+              <usal:UploadFile AttachmentsAction="{x:Null}" PropertiesToAdd="{x:Null}" RelativeUrlHintText="{x:Null}" AllowOperationsOnASPXFiles="False" AllowOverwrite="True" CheckInFileAfterCreation="False" CheckOutFileBeforeOverwrite="False" ChooseFile="True" DisplayName="Upload file" sap:VirtualizedContainerService.HintSize="273,104" sap2010:WorkflowViewState.IdRef="UploadFile_1" LocalPath="[in_StrLocalFilePath]" LocalPathHintText="The current local path of the file" RelativeUrl="[in_StrSharePointPath]" ShowAttachFiles="False" ShowCAMLQuery="False" ShowCAMLWarning="False" ShowGroupDescription="False" ShowGroupName="False" ShowLibraryName="False" ShowListName="False" ShowLocalPath="True" ShowMove="False" ShowPermissionDropdown="False" ShowPropertiesDictionary="False" ShowRelativeUrl="True" ShowRename="False" ShowUserName="False" />
             </Sequence>
           </ActivityAction>
         </usa:SharepointApplicationScope.Body>

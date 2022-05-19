@@ -1,0 +1,5 @@
+#Ignore
+.screenshots/*
+.settings/*
+.local/*
+.objects/*

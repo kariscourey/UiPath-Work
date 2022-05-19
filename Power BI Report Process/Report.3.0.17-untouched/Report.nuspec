@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Report</id>
+    <version>3.0.17</version>
+    <authors>986011</authors>
+    <owners>986011</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>TQA Reporting Solution.</description>
+    <releaseNotes>BE005 (To Field empty) added in CEP Report</releaseNotes>
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.1">
+        <dependency id="TQA.DataTable" version="[1.0.3]" />
+        <dependency id="TQA.Email" version="[1.0.9]" />
+        <dependency id="TQA.Excel.and.Workbook" version="[2.0.1]" />
+        <dependency id="TQA.System" version="[1.0.4]" />
+        <dependency id="UiPath.Excel.Activities" version="[2.8.6]" />
+        <dependency id="UiPath.System.Activities" version="[21.4.0-preview]" />
+        <dependency id="UiPath.UIAutomation.Activities" version="[20.4.2]" />
+        <dependency id="UiPath.WebAPI.Activities" version="[1.7.0-beta.1500066]" />
+        <dependency id="UiPathTeam.SharePoint.Activities" version="[1.7.0]" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

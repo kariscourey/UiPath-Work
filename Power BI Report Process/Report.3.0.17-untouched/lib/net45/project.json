@@ -1,33 +1,32 @@
 {
   "name": "Report",
-  "description": "",
+  "description": "TQA Reporting Solution.",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.12.3]",
-    "UiPath.System.Activities": "[22.4.1]",
-    "UiPath.UIAutomation.Activities": "[22.4.4]",
-    "UiPath.WebAPI.Activities": "[1.11.1]",
+    "TQA.DataTable": "[1.0.3]",
+    "TQA.Email": "[1.0.9]",
+    "TQA.Excel.and.Workbook": "[2.0.1]",
+    "TQA.System": "[1.0.4]",
+    "UiPath.Excel.Activities": "[2.8.6]",
+    "UiPath.System.Activities": "[21.4.0-preview]",
+    "UiPath.UIAutomation.Activities": "[20.4.2]",
+    "UiPath.WebAPI.Activities": "[1.7.0-beta.1500066]",
     "UiPathTeam.SharePoint.Activities": "[1.7.0]"
   },
   "webServices": [],
-  "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "20.4.1.0",
   "projectVersion": "3.0.17",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
-    "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
     "excludedLoggedData": [
       "Private:*",
       "*password*"
     ],
-    "executionType": "Workflow",
-    "readyForPiP": false,
-    "startsInPiP": false,
-    "mustRestoreAllDependencies": false
+    "executionType": "Workflow"
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -36,11 +35,7 @@
       "includeOriginalXaml": false,
       "privateWorkflows": []
     },
-    "processOptions": {
-      "ignoredFiles": []
-    },
-    "fileInfoCollection": [],
-    "modernBehavior": true
+    "fileInfoCollection": []
   },
   "arguments": {
     "input": [
@@ -77,17 +72,5 @@
     ],
     "output": []
   },
-  "expressionLanguage": "VisualBasic",
-  "entryPoints": [
-    {
-      "filePath": "Main.xaml",
-      "uniqueId": "5c5025e3-ec33-4521-bd01-596d9a29b6a8",
-      "input": [],
-      "output": []
-    }
-  ],
-  "isTemplate": false,
-  "templateProjectData": {},
-  "publishData": {},
-  "targetFramework": "Legacy"
+  "expressionLanguage": "VisualBasic"
 }
