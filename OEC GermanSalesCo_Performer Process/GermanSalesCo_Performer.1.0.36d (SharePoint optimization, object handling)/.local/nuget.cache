@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xq6nYWxYpMwGZzlX5tOS9HONJ9ST7qDFlHxewoxBS+QfGyWYmi3jAtkKbaDWbDZjM7hbvEKF4tDDgRs8Deb2GA==",
+  "dgSpecHash": "By7WwXLXAPNOQNqdMWaDJelLwz94kaBmy0gY8CHv4BEs0JrO0tYjrUklLxaf1WCO4gYSm/Y5gBE9xNp5xXr87g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\GermanSalesCo_Performer.1.0.36d (SharePoint optimization, object handling)\\.local\\",
+  "projectFilePath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\OEC GermanSalesCo_Performer Process\\GermanSalesCo_Performer.1.0.36d (SharePoint optimization, object handling)\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\561625\\.nuget\\packages\\anglesharp\\0.9.9\\anglesharp.0.9.9.nupkg.sha512",
     "C:\\Users\\561625\\.nuget\\packages\\avalonedit\\6.0.1\\avalonedit.6.0.1.nupkg.sha512",
