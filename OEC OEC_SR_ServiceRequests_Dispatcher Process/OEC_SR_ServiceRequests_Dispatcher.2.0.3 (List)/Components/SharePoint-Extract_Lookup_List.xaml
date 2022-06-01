@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1200,4315</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1200,4604</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>IE___Any_Screen___Navigate_to_URL_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="80">
@@ -100,9 +100,10 @@
       <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
       <AssemblyReference>System.Memory.Data</AssemblyReference>
       <AssemblyReference>UiPathTeam.SharePoint.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="&#xA;Component that, given SharePoint details, reads the list and extracts it as a datatable " DisplayName="SharePoint-Extract_Lookup_List" sap:VirtualizedContainerService.HintSize="1210,4250" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="&#xA;Component that, given SharePoint details, reads the list and extracts it as a datatable " DisplayName="SharePoint-Extract_Lookup_List" sap:VirtualizedContainerService.HintSize="1210,4539" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="Sharepoint-Extract_Lookup_List" Name="strComponentName" />
       <Variable x:TypeArguments="x:Boolean" Name="boolFileExists" />
@@ -120,6 +121,14 @@
       </If.Then>
       <If.Else>
         <ui:LogMessage DisplayName="Log Message - Incoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Trace" Message="[String.Format(&quot;Incoming Argument in_StrListURL (Ref: {0}) is Not Null and is Populated&quot;, in_StrListURL )]" />
+      </If.Else>
+    </If>
+    <If Condition="[String.IsNullOrWhiteSpace(in_StrListName)]" DisplayName="Check Argument in_StrSiteURL" sap:VirtualizedContainerService.HintSize="1168,249" sap2010:WorkflowViewState.IdRef="If_22">
+      <If.Then>
+        <Throw DisplayName="Throw In Argument AE" Exception="[New Exception(&quot;Incoming Argument in_StrSiteURL is Null or Not Populated&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_18" />
+      </If.Then>
+      <If.Else>
+        <ui:LogMessage DisplayName="Log Message - Incoming Argument" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Trace" Message="[String.Format(&quot;Incoming Argument in_StrListName (Ref: {0}) is Not Null and is Populated&quot;, in_StrListName )]" />
       </If.Else>
     </If>
     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1168,418" sap2010:WorkflowViewState.IdRef="CommentOut_9">
@@ -141,7 +150,7 @@
         </Sequence>
       </ui:CommentOut.Body>
     </ui:CommentOut>
-    <usa:SharepointApplicationScope AzureApplicationID="{x:Null}" ClientContext="{x:Null}" ClientId="{x:Null}" ClientSecret="{x:Null}" LoginTimeout="{x:Null}" Password="{x:Null}" SecurePassword="{x:Null}" UserName="{x:Null}" AzureAppPermissions="None" DisplayName="Sharepoint application scope" sap:VirtualizedContainerService.HintSize="1168,373" sap2010:WorkflowViewState.IdRef="SharepointApplicationScope_1" PlatformType="Online" QueryGrouping="False" ResetCredentials="False" SharePointInstanceType="WebLogin" URL="[in_StrListURL]">
+    <usa:SharepointApplicationScope AzureApplicationID="{x:Null}" ClientContext="{x:Null}" ClientId="{x:Null}" ClientSecret="{x:Null}" LoginTimeout="{x:Null}" Password="{x:Null}" SecurePassword="{x:Null}" UserName="{x:Null}" AzureAppPermissions="None" DisplayName="Sharepoint application scope" sap:VirtualizedContainerService.HintSize="1168,373" sap2010:WorkflowViewState.IdRef="SharepointApplicationScope_1" PlatformType="Online" QueryGrouping="False" ResetCredentials="False" SharePointInstanceType="WebLogin" URL="https://parkercorp-my.sharepoint.com/personal/beverly_johnson_parker_com">
       <usa:SharepointApplicationScope.Body>
         <ActivityAction x:TypeArguments="us:SharePointContextInfo">
           <ActivityAction.Argument>
@@ -153,7 +162,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <usal:ReadListItems AttachmentsAction="{x:Null}" ItemsDictArray="{x:Null}" LocalPathHintText="{x:Null}" RelativeUrlHintText="{x:Null}" CAMLQuery="&lt;Query&gt;&#xD;&#xA;&#x9;&lt;Where&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsNotNull&gt;&#xD;&#xA;&#x9;&#x9;&#x9;&lt;FieldRef Name='field_1' /&gt;&#xD;&#xA;&#x9;&#x9;&lt;/IsNotNull&gt;&#xD;&#xA;&#x9;&lt;/Where&gt;&#xD;&#xA;&lt;/Query&gt;&#xD;&#xA;&lt;ViewFields&gt;&#xD;&#xA;&#x9;&lt;FieldRef Name='Title' /&gt;&#xD;&#xA;&#x9;&lt;FieldRef Name='field_1' /&gt;&#xD;&#xA;&#x9;&lt;FieldRef Name='field_2' /&gt;&#xD;&#xA;&#x9;&lt;FieldRef Name='field_3' /&gt;&#xD;&#xA;&#x9;&lt;FieldRef Name='field_4' /&gt;&#xD;&#xA;&lt;/ViewFields&gt;&#xD;&#xA;&lt;QueryOptions /&gt;" ChooseFile="False" DisplayName="Get List Items" sap:VirtualizedContainerService.HintSize="344,140" sap2010:WorkflowViewState.IdRef="ReadListItems_1" ItemsTable="[out_DtLookUp]" ListName="[in_StrListName]" ShowAttachFiles="False" ShowCAMLQuery="True" ShowCAMLWarning="False" ShowGroupDescription="False" ShowGroupName="False" ShowLibraryName="False" ShowListName="True" ShowLocalPath="False" ShowMove="False" ShowPermissionDropdown="False" ShowPropertiesDictionary="False" ShowRelativeUrl="False" ShowRename="False" ShowUserName="False" />
+            <usal:ReadListItems AttachmentsAction="{x:Null}" ItemsDictArray="{x:Null}" LocalPathHintText="{x:Null}" RelativeUrlHintText="{x:Null}" CAMLQuery="&lt;Query&gt;&#xA;&#x9;&lt;Where&gt;&#xA;&#x9;&#x9;&lt;IsNotNull&gt;&#xA;&#x9;&#x9;&#x9;&lt;FieldRef Name='field_1' /&gt;&#xA;&#x9;&#x9;&lt;/IsNotNull&gt;&#xA;&#x9;&lt;/Where&gt;&#xA;&lt;/Query&gt;&#xA;&lt;ViewFields&gt;&#xA;&#x9;&lt;FieldRef Name='Title' /&gt;&#xA;&#x9;&lt;FieldRef Name='field_1' /&gt;&#xA;&#x9;&lt;FieldRef Name='field_2' /&gt;&#xA;&#x9;&lt;FieldRef Name='field_3' /&gt;&#xA;&#x9;&lt;FieldRef Name='field_4' /&gt;&#xA;&lt;/ViewFields&gt;&#xA;&lt;QueryOptions /&gt;" ChooseFile="False" DisplayName="Get List Items" sap:VirtualizedContainerService.HintSize="344,140" sap2010:WorkflowViewState.IdRef="ReadListItems_1" ItemsTable="[out_DtLookUp]" ListName="Queue and Account Look-up" ShowAttachFiles="False" ShowCAMLQuery="True" ShowCAMLWarning="False" ShowGroupDescription="False" ShowGroupName="False" ShowLibraryName="False" ShowListName="True" ShowLocalPath="False" ShowMove="False" ShowPermissionDropdown="False" ShowPropertiesDictionary="False" ShowRelativeUrl="False" ShowRename="False" ShowUserName="False" />
           </Sequence>
         </ActivityAction>
       </usa:SharepointApplicationScope.Body>

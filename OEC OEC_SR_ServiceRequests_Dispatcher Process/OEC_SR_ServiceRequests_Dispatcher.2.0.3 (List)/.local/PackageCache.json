@@ -250,6 +250,18 @@
         "C:\\Users\\561625\\.nuget\\packages\\windowsazure.storage/7.0.0\\lib/net40/Microsoft.WindowsAzure.Storage.dll"
       ],
       "Path": "C:\\Users\\561625\\.nuget\\packages\\uipathteam.sharepoint.activities\\1.7.0"
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Python.Activities",
+        "Version": "1.6.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\561625\\.nuget\\packages\\uipath.python.activities/1.6.0\\lib/net461/UiPath.Python.Activities.Design.dll",
+        "C:\\Users\\561625\\.nuget\\packages\\uipath.python.activities/1.6.0\\lib/net461/UiPath.Python.Activities.dll",
+        "C:\\Users\\561625\\.nuget\\packages\\uipath.python.activities/1.6.0\\lib/net461/UiPath.Python.dll"
+      ],
+      "Path": "C:\\Users\\561625\\.nuget\\packages\\uipath.python.activities\\1.6.0"
     }
   ],
   "Conflicts": [],
@@ -1478,6 +1490,11 @@
           "Item2": "[4.5.0, )"
         }
       ]
+    },
+    "UiPath.Python.Activities": {
+      "Id": "UiPath.Python.Activities",
+      "Version": "1.6.0",
+      "Dependencies": []
     },
     "UiPath.System.Activities": {
       "Id": "UiPath.System.Activities",
@@ -2718,6 +2735,18 @@
         "C:\\Users\\561625\\.nuget\\packages\\uipath.platform\\22.4.0\\lib\\net461\\UiPath.Platform.dll"
       ],
       "Path": "C:\\Users\\561625\\.nuget\\packages\\uipath.platform\\22.4.0"
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Python.Activities",
+        "Version": "1.6.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\561625\\.nuget\\packages\\uipath.python.activities\\1.6.0\\lib\\net461\\UiPath.Python.Activities.Design.dll",
+        "C:\\Users\\561625\\.nuget\\packages\\uipath.python.activities\\1.6.0\\lib\\net461\\UiPath.Python.Activities.dll",
+        "C:\\Users\\561625\\.nuget\\packages\\uipath.python.activities\\1.6.0\\lib\\net461\\UiPath.Python.dll"
+      ],
+      "Path": "C:\\Users\\561625\\.nuget\\packages\\uipath.python.activities\\1.6.0"
     },
     {
       "Package": {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kjWwobf82oRcEibuwwEMp4txVNW7qTpc2urL4FN+Tt5tDDGCp+6Nod8m05PLsxbYFn1/nwjdP82rK5MbLOP/Qg==",
+  "dgSpecHash": "X/wGRvo8OvhnAQZ0VO+dhh/KeEnPVH6KYkJMI5ylpxmwWgQiyfwljOyW4nzlCkhZfjIFLiRF3GR/h/j5Mtb2uA==",
   "success": true,
   "projectFilePath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\OEC OEC_SR_ServiceRequests_Dispatcher Process\\OEC_SR_ServiceRequests_Dispatcher.2.0.3 (List)\\.local\\",
   "expectedPackageFiles": [
@@ -106,6 +106,7 @@
     "C:\\Users\\561625\\.nuget\\packages\\uipath.ocr.activities\\3.0.0\\uipath.ocr.activities.3.0.0.nupkg.sha512",
     "C:\\Users\\561625\\.nuget\\packages\\uipath.ocr.contracts\\2.7.3\\uipath.ocr.contracts.2.7.3.nupkg.sha512",
     "C:\\Users\\561625\\.nuget\\packages\\uipath.platform\\22.4.0\\uipath.platform.22.4.0.nupkg.sha512",
+    "C:\\Users\\561625\\.nuget\\packages\\uipath.python.activities\\1.6.0\\uipath.python.activities.1.6.0.nupkg.sha512",
     "C:\\Users\\561625\\.nuget\\packages\\uipath.system.activities\\21.4.1\\uipath.system.activities.21.4.1.nupkg.sha512",
     "C:\\Users\\561625\\.nuget\\packages\\uipath.telemetry.client\\1.5.3\\uipath.telemetry.client.1.5.3.nupkg.sha512",
     "C:\\Users\\561625\\.nuget\\packages\\uipath.uiautomation.activities\\21.4.4\\uipath.uiautomation.activities.21.4.4.nupkg.sha512",
