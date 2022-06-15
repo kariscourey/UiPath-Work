@@ -6336,9 +6336,9 @@
     "restore": {
       "projectUniqueName": "OEC_SR_ServiceRequests_Dispatcher",
       "projectName": "OEC_SR_ServiceRequests_Dispatcher",
-      "projectPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\OEC_SR_ServiceRequests_Dispatcher.2.0.2\\lib\\net45\\.local",
+      "projectPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\OEC OEC_SR_ServiceRequests_Dispatcher Process\\OEC_SR_ServiceRequests_Dispatcher.2.0.2\\lib\\net45\\.local",
       "packagesPath": "C:\\Users\\561625\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\OEC_SR_ServiceRequests_Dispatcher.2.0.2\\lib\\net45\\.local"
+      "outputPath": "C:\\Users\\561625\\Documents\\GitHub\\UiPath-Work\\OEC OEC_SR_ServiceRequests_Dispatcher Process\\OEC_SR_ServiceRequests_Dispatcher.2.0.2\\lib\\net45\\.local"
     },
     "frameworks": {
       "net461": {
